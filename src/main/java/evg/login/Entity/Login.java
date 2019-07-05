@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package evg.login.Entity;
-
 import evg.login.Dao.LoginDAO;
 import evg.login.Util.SessionUtils;
 import java.io.Serializable;
@@ -13,7 +12,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
-
 
 @ManagedBean
 @SessionScoped
@@ -57,16 +55,25 @@ public class Login implements Serializable {
                         session.setAttribute("username", user);
 			return "admin";
 		} else {
-                        setMsg("Не верное имя пользователя или пароль");
+//                    info();
+//                        setMsg("Не верное имя пользователя или пароль");
+                        FacesContext.getCurrentInstance().addMessage(
+                                null
+                                , new FacesMessage(FacesMessage.SEVERITY_ERROR
+                                                   ,"Не правильное имя пользователя или пароль"
+                                                   ,null));
 //			FacesContext.getCurrentInstance().addMessage(
 //					null,
 //					new FacesMessage(FacesMessage.SEVERITY_WARN,
 //							"Incorrect Username and Passowrd",
 //							"Please enter correct username and Password"));
-			return "index";
+			return null;
 		}
 	}
-
+        public void info() {
+//           SEVERITY_INFO SEVERITY_WARN SEVERITY_ERROR SEVERITY_FATAL
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Info", "PrimeFaces Rocks."));
+        }
 	//logout event, invalidate session
 	public String logout() {
 		HttpSession session = SessionUtils.getSession();
