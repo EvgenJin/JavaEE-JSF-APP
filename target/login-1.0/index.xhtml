@@ -3,26 +3,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
+   
 <h:head>
 	<title>login</title>
+        <h:outputStylesheet name="css/primeflex/primeflex.css"/>
+        <h:outputStylesheet name="css/font.css"/>
 </h:head>
 <h:body>
-    <div class="box">
-	<h:form>
-            <p:panel id="pnl" header="Авторизация">
-		<h3>JSF Login Logout</h3>
-                <h:outputText id="msg" value="#{login.msg}"></h:outputText>
-                <h:panelGrid columns="2" cellpadding="5">
-                    <h:outputLabel for="username" value="Имя пользователя"></h:outputLabel>
-                    <p:inputText id="username" value="#{login.user}"></p:inputText>
-                    <h:outputLabel for="password" value="Пароль"></h:outputLabel>
-                    <p:password id="password" value="#{login.pwd}" label="password"></p:password>
-                    <p:commandButton action="#{login.validateUsernamePassword}"
-                                     value="Login" icon="pi pi-check"></p:commandButton>
-                </h:panelGrid>
-            </p:panel>    
-	</h:form>
+    <div class="p-grid p-justify-center">
+        <div class="p-col-3">
+                <div class="box">
+                    <p:messages id="messages" showDetail="true" closable="true">
+                        <p:autoUpdate />
+                    </p:messages>
+                    <h:form>                  
+                        <p:panel id="pnl" header="Авторизация">
+                            <h:outputText id="message" value="#{login.msg}"></h:outputText>
+                            <h:panelGrid columns="1" cellpadding="1">
+                                <h:outputLabel for="username" value="Имя пользователя"></h:outputLabel>
+                                <p:inputText id="username" value="#{login.user}" required="true"></p:inputText>
+                                <p:message for="username" />
+                                <h:outputLabel for="password" value="Пароль"></h:outputLabel>
+                                <p:password id="password" value="#{login.pwd}" label="password"></p:password>
+                                <p:commandButton action="#{login.validateUsernamePassword}" value="Login" ></p:commandButton>
+                            </h:panelGrid>
+                        </p:panel>    
+                    </h:form>
+                </div>
+        </div>
     </div>
+   
+<!--    <div class="p-grid p-justify-center" >
+         <div class="p-col-12 p-md-6 p-lg-3">
+            <div class="box">Второй блок</div>
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-3">
+            <div class="box">Третий блок</div>
+        </div>
+        <div class="p-col-12 p-md-6 p-lg-3">
+            <div class="box">Четвертный блок</div>
+        </div>         
+    </div>  -->
 </h:body>
 </html>
 
