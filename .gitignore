@@ -31,5 +31,9 @@ src/main/resources/META-INF/persistence.xml
 /.idea/*
 .idea/*
 login.iml
-target/
+target/classes/*
+target/classes/META-INF/*
+target/classes/login-1.0/*
+target/maven-archiver/*
+target/maven-archiver/
 target\
