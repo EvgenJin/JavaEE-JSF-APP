@@ -1,33 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:f="http://java.sun.com/jsf/core"
-    xmlns:p="http://primefaces.org/ui">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>login</title>
-    <h:outputStylesheet name="css/primeflex/primeflex.css"/>
+	<title>login</title>
 </h:head>
 <h:body>
-    <div class="p-grid">
-        <div class="p-col-4">
-            <div class="box">
-                <p:panel id="pnl" header="Авторизация">
-                    <h:outputText id="msg" value="#{login.msg}"></h:outputText>
-                    <h:panelGrid columns="2" cellpadding="5">
-                        <h:outputLabel for="username" value="Имя пользователя"></h:outputLabel>
-                        <p:inputText id="username" value="#{login.user}" required="true" label="username"></p:inputText>
-                        <h:outputLabel for="password" value="Пароль"></h:outputLabel>
-                        <p:password id="password" value="#{logid.pwd}" required="true" label="password"></p:password>
-                        <!--<p:commandButton value="Войти" icon="pi pi-check" style="margin:0" action="#{login.validateUsernamePassword}"></p:commandButton>-->
-                        <h:commandButton value="Login" action="#{login.validateUsernamePassword()}"></h:commandButton>
-                    </h:panelGrid>
-                </p:panel>
-            </div>
-        </div>
-        <div class="p-col-3">
-            <div class="box">4</div>
-        </div>        
-    </div>    
+    <div class="box">
+	<h:form>
+            <p:panel id="pnl" header="Авторизация">
+		<h3>JSF Login Logout</h3>
+                <h:outputText id="msg" value="#{login.msg}"></h:outputText>
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputLabel for="username" value="Имя пользователя"></h:outputLabel>
+                    <p:inputText id="username" value="#{login.user}"></p:inputText>
+                    <h:outputLabel for="password" value="Пароль"></h:outputLabel>
+                    <p:password id="password" value="#{login.pwd}" label="password"></p:password>
+                    <p:commandButton action="#{login.validateUsernamePassword}"
+                                     value="Login" icon="pi pi-check"></p:commandButton>
+                </h:panelGrid>
+            </p:panel>    
+	</h:form>
+    </div>
 </h:body>
 </html>
+
