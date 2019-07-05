@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TodosViewDlg" widgetVar="TodosViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTodosTitle}">
+            <h:form id="TodosViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{todosController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTodosLabel_id}"/>
+                        <h:outputText value="#{todosController.selected.id}" title="#{bundle.ViewTodosTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewTodosLabel_description}"/>
+                        <h:outputText value="#{todosController.selected.description}" title="#{bundle.ViewTodosTitle_description}"/>
+                        <h:outputText value="#{bundle.ViewTodosLabel_task}"/>
+                        <h:outputText value="#{todosController.selected.task}" title="#{bundle.ViewTodosTitle_task}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TodosViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TodosEditDlg" widgetVar="TodosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTodosTitle}">
+            <h:form id="TodosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{todosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTodosLabel_id}" for="id" />
+                        <p:inputText id="id" value="#{todosController.selected.id}" title="#{bundle.EditTodosTitle_id}" required="true" requiredMessage="#{bundle.EditTodosRequiredMessage_id}"/>
+                        <p:outputLabel value="#{bundle.EditTodosLabel_description}" for="description" />
+                        <p:inputText id="description" value="#{todosController.selected.description}" title="#{bundle.EditTodosTitle_description}" />
+                        <p:outputLabel value="#{bundle.EditTodosLabel_task}" for="task" />
+                        <p:inputText id="task" value="#{todosController.selected.task}" title="#{bundle.EditTodosTitle_task}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{todosController.update}" value="#{bundle.Save}" update="display,:TodosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TodosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TodosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

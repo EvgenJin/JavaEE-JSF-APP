@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url("#{resource['css/google_roboto/Roboto-Black.ttf']}") format('truetype');
+}
+
+
+
