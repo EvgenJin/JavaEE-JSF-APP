@@ -21,7 +21,7 @@ public class LoginDAO {
                 e.printStackTrace();
             }
             // Oracle SID = orcl , find yours in tnsname.ora
-            try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@10.0.1.43:1521:orclcdb", user, password)) {
+            try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@addr:port:base", user, password)) {
                 if (conn != null) {
 //                    System.out.println("Connected to the database!");
                     return true;
