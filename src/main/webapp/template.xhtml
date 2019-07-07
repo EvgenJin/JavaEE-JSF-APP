@@ -7,15 +7,18 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:head>
-        <title><ui:insert name="title">Default Title</ui:insert></title>
-        <h:outputStylesheet library="css" name="jsfcrud.css"/>
-        <h:outputScript library="js" name="jsfcrud.js"/>
+        <title><ui:insert name="title">JSF_APP</ui:insert></title>
+        <!--<h:outputStylesheet library="css" name="jsfcrud.css"/>-->
+        <!--<h:outputScript library="js" name="jsfcrud.js"/>-->
     </h:head>
 
     <h:body>
         <p:growl id="growl" life="3000" />
         <p:layout fullPage="true">
-            <p:layoutUnit position="north">
+<!--            <p:layoutUnit position="north">
+                <h:outputText value="Top content." />
+            </p:layoutUnit>-->
+            <p:layoutUnit position="center">
                 <h:form>
                     <p:menubar>
                             <p:submenu label="Меню" icon="pi pi-file">
@@ -25,33 +28,24 @@
                                 </p:submenu>
                                 <p:menuitem value="Todos" outcome="/todos/List.xhtml"/>
                                 <p:separator />
-                                <p:menuitem value="Quit" url="#" />
+                                <p:menuitem value="Quit" outcome="index"/>
                             </p:submenu>
                             <f:facet name="options">
-                                <p:inputText style="margin:1px 10px 1px 1px;" placeholder="Search"/>
                                 <p:commandButton type="button" action="#{login.logout}" value="Logout" icon="pi pi-home" />
                             </f:facet>                
                     </p:menubar>
-                </h:form>    
-            </p:layoutUnit>    
-<!--                <h:form id="menuForm">
-                    <p:menubar>
-                        <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Maintenance}">
-                            <p:menuitem value="Todos" outcome="/todos/List.xhtml" />
-                        </p:submenu>
-                    </p:menubar>
-                </h:form>-->
-            <!--</p:layoutUnit>-->
-            <p:layoutUnit position="center">
+                </h:form>        
                 <ui:insert name="body"/>
             </p:layoutUnit>
-
-            <p:layoutUnit position="south">
+<!--            <p:layoutUnit position="west">
+                <h:outputText value="Left content" />
+            </p:layoutUnit>-->
+<!--            <p:layoutUnit position="east">
+                <h:outputText value="Right Content" />
+            </p:layoutUnit>-->
+<!--            <p:layoutUnit position="south">
                 <ui:insert name="footer"/>
-            </p:layoutUnit>            
+            </p:layoutUnit>         -->
         </p:layout>
-
     </h:body>
-
 </html>

@@ -4,6 +4,7 @@ import evg.login.Entity.Todos;
 import evg.login.Controller.util.JsfUtil;
 import evg.login.Controller.util.JsfUtil.PersistAction;
 import evg.login.SessionBean.TodosFacade;
+import static evg.login.Util.SessionUtils.getUserName;
 
 import java.io.Serializable;
 import java.util.List;
@@ -32,10 +33,13 @@ public class TodosController implements Serializable {
     }
 
     public Todos getSelected() {
+//        selected.setUsr(getUserName());
         return selected;
     }
 
     public void setSelected(Todos selected) {
+//        selected.setUsr("asdasd");
+//        this.selected.setUsr(getUserName());
         this.selected = selected;
     }
 
@@ -51,11 +55,13 @@ public class TodosController implements Serializable {
 
     public Todos prepareCreate() {
         selected = new Todos();
+        selected.setUsr(getUserName());
         initializeEmbeddableKey();
         return selected;
     }
 
     public void create() {
+        System.out.println(getUserName());
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("TodosCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.

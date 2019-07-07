@@ -32,7 +32,14 @@
                 <to-view-id>/index.xhtml</to-view-id>
                 <redirect/>
             </navigation-case>
-        </navigation-rule>        
+        </navigation-rule>   
+        <navigation-rule>
+            <navigation-case>
+                <from-outcome>one</from-outcome>
+                <to-view-id>/todos/One.xhtml</to-view-id>
+                <redirect/>
+            </navigation-case>
+        </navigation-rule>               
 <!--        <navigation-rule>
             <navigation-case>
                 <from-outcome>List</from-outcome>
