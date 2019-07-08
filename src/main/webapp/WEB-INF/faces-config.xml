@@ -37,7 +37,7 @@
             <navigation-case>
                 <from-outcome>one</from-outcome>
                 <to-view-id>/todos/One.xhtml</to-view-id>
-                <redirect/>
+                <redirect include-view-params="true" />
             </navigation-case>
         </navigation-rule>               
 <!--        <navigation-rule>

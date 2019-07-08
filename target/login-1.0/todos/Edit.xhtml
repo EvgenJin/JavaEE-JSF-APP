@@ -21,6 +21,9 @@
                     </p:panelGrid>
                     <p:commandButton actionListener="#{todosController.update}" value="#{bundle.Save}" update="display,:TodosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TodosEditDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="TodosEditDialog.hide()"/>
+                    <h:commandLink action = "#{todosController.populate}" value = "#{todosController.selected.id}">
+                        <f:setPropertyActionListener target = "#{todosController.selected.id}" value ="#{todosController.selected.id}"></f:setPropertyActionListener>
+                    </h:commandLink>
                 </h:panelGroup>
             </h:form>
         </p:dialog>

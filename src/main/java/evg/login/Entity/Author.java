@@ -5,8 +5,8 @@
  */
 package evg.login.Entity;
 
-import static evg.login.Util.SessionUtils.getUserName;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -23,69 +23,59 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author admin
  */
 @Entity
-@Table(name = "TODOS")
+@Table(name = "AUTHOR")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Todos.findAll", query = "SELECT t FROM Todos t")
-    , @NamedQuery(name = "Todos.findById", query = "SELECT t FROM Todos t WHERE t.id = :id")
-    , @NamedQuery(name = "Todos.findByDescription", query = "SELECT t FROM Todos t WHERE t.description = :description")
-    , @NamedQuery(name = "Todos.findByTask", query = "SELECT t FROM Todos t WHERE t.task = :task")})
-public class Todos implements Serializable {
+    @NamedQuery(name = "Author.findAll", query = "SELECT a FROM Author a")
+    , @NamedQuery(name = "Author.findById", query = "SELECT a FROM Author a WHERE a.id = :id")
+    , @NamedQuery(name = "Author.findByFirstName", query = "SELECT a FROM Author a WHERE a.firstName = :firstName")
+    , @NamedQuery(name = "Author.findByLastName", query = "SELECT a FROM Author a WHERE a.lastName = :lastName")})
+public class Author implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
     @NotNull
     @Column(name = "ID")
-    private Long id;
+    private BigDecimal id;
     @Size(max = 255)
-    @Column(name = "DESCRIPTION")
-    private String description;
+    @Column(name = "FIRST_NAME")
+    private String firstName;
     @Size(max = 255)
-    @Column(name = "TASK")
-    private String task;
-    @Size(max = 255)
-    @Column(name = "USR")
-    private String usr;
-    
-    public Todos() {
+    @Column(name = "LAST_NAME")
+    private String lastName;
+
+    public Author() {
     }
 
-    public Todos(Long id) {
+    public Author(BigDecimal id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public BigDecimal getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigDecimal id) {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getTask() {
-        return task;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setTask(String task) {
-        this.task = task;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
-    
-    public String getUsr() {
-        return usr;
-    }
-
-    public void setUsr(String usr) {
-        this.usr = usr;
-    }    
 
     @Override
     public int hashCode() {
@@ -97,10 +87,10 @@ public class Todos implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Todos)) {
+        if (!(object instanceof Author)) {
             return false;
         }
-        Todos other = (Todos) object;
+        Author other = (Author) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -109,9 +99,7 @@ public class Todos implements Serializable {
 
     @Override
     public String toString() {
-        return "evg.login.Todos[ id=" + id + " ]";
+        return "evg.login.Entity.Author[ id=" + id + " ]";
     }
-    
-    
     
 }

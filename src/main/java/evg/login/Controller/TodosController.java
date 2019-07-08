@@ -3,6 +3,7 @@ package evg.login.Controller;
 import evg.login.Entity.Todos;
 import evg.login.Controller.util.JsfUtil;
 import evg.login.Controller.util.JsfUtil.PersistAction;
+import static evg.login.Entity.Todos_.id;
 import evg.login.SessionBean.TodosFacade;
 import static evg.login.Util.SessionUtils.getUserName;
 
@@ -25,7 +26,7 @@ import javax.faces.convert.FacesConverter;
 public class TodosController implements Serializable {
 
     @EJB
-    private evg.login.SessionBean.TodosFacade ejbFacade;
+    private TodosFacade ejbFacade;
     private List<Todos> items = null;
     private Todos selected;
 

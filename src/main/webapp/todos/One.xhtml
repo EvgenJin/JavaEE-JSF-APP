@@ -5,22 +5,23 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    <f:metadata>
-        <f:viewParam name="text" value="#{id}"></f:viewParam>
-    </f:metadata>    
+<f:metadata>
+    <f:viewParam name="id" value="#{bookController.selected.id}" />
+</f:metadata>
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+        <h:inputText size="10" value="#{id}" />
             <h:form id="TodosViewForm">
                 <h:panelGroup id="sdisplay">
                     <p:panelGrid columns="2">
                         <h:outputText value="id"/>
-                        <h:outputText value="#{todosController.selected.id}"/>
-                        <h:outputText value="field1"/>
-                        <h:outputText value="#{todosController.selected.description}" />
-                        <h:outputText value="field2"/>
-                        <h:outputText value="#{todosController.selected.task}"/>
+                        <h:outputText value="#{bookController.selected.id}"/>
+                        <h:outputText value="author"/>
+                        <h:outputText value="#{bookController.selected.author}" />
+                        <h:outputText value="category"/>
+                        <h:outputText value="#{bookController.selected.category}"/>
                     </p:panelGrid>
                 </h:panelGroup>
             </h:form>

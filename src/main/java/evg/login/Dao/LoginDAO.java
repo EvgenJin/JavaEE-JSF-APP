@@ -20,7 +20,8 @@ public class LoginDAO {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@10.26.232.216:1521:card", user, password)) {
+            // Oracle SID = orcl , find yours in tnsname.ora
+            try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@10.0.1.43:1521:orclcdb", user, password)) {
                 if (conn != null) {
 //                    System.out.println("Connected to the database!");
                     return true;
@@ -32,12 +33,12 @@ public class LoginDAO {
                 System.err.format("SQL State: %s\n%s", e.getSQLState(), e.getMessage());
 //                return false;
             }
-            return false;            
 //            finally {}
 //            catch (Exception e) {
 //                e.printStackTrace();
 //            }
 
+            return false;
 //		Connection con = null;
 //		PreparedStatement ps = null;
 //

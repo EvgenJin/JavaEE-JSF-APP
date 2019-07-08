@@ -60,3 +60,6 @@ pom.xml
 pom.xml
 src/main/java/evg/login/Dao/LoginDAO.java
 src/main/webapp/WEB-INF/glassfish-resources.xml
+src/main/java/evg/login/Dao/LoginDAO.java
+src/main/webapp/WEB-INF/glassfish-resources.xml
+src/main/resources/META-INF/persistence.xml
