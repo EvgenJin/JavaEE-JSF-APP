@@ -7,5 +7,7 @@ evg\login\Controller\TodosController.class
 evg\login\Dao\LoginDAO.class
 evg\login\Entity\Todos.class
 evg\login\Controller\util\JsfUtil$PersistAction.class
+evg\login\SessionBean\MyBean.class
 evg\login\Controller\TodosController$TodosControllerConverter.class
 evg\login\Controller\util\JsfUtil.class
+evg\login\Controller\util\PaginationHelper.class

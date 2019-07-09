@@ -59,6 +59,12 @@
 
                         <p:column>
                             <f:facet name="header">
+                                <h:outputText value="id"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
                                 <h:outputText value="description"/>
                             </f:facet>
                             <h:outputText value="#{item.description}"/>
@@ -71,7 +77,10 @@
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton value="Create" id="createButton" icon="ui-icon-plus"   actionListener="#{todosController.prepareCreate}" update=":TodosCreateForm" oncomplete="PF('TodosCreateDialog').show()"/>
-                            <p:commandButton value="View"   id="viewButton"   icon="ui-icon-search" update=":TodosViewForm" oncomplete="PF('TodosViewDialog').show()" disabled="#{empty todosController.selected}"/>
+                            <!--<p:commandButton value="View"   id="viewButton"   icon="ui-icon-search" update=":TodosViewForm" oncomplete="PF('TodosViewDialog').show()" disabled="#{empty todosController.selected}"/>-->
+                            <p:commandButton value="View"   id="viewButton" action = "#{userData.showResult}" >
+                                <f:param name = "username" value = "#{todosController.selected.id}" />
+                            </p:commandButton>
                             <p:commandButton value="Edit"   id="editButton"   icon="ui-icon-pencil" update=":TodosEditForm" oncomplete="PF('TodosEditDialog').show()" disabled="#{empty todosController.selected}"/>
                             <p:commandButton value="Delete" id="deleteButton" icon="ui-icon-trash"  actionListener="#{todosController.destroy}" update=":growl,datalist" disabled="#{empty todosController.selected}"/>
                         </f:facet>
@@ -79,7 +88,9 @@
                     <p:contextMenu for="datalist">
                         <p:menuitem value="Просмотр" icon="pi pi-search" update=":TodosViewForm" oncomplete="PF('TodosViewDialog').show()"/>
                         <p:menuitem value="Удалить" icon="ui-icon-closethick" update=":growl,datalist" action ="#{todosController.destroy}"/>
-                        <p:menuitem value="Изменить" icon="ui-icon-pencil" action="one" ><f:param name="text" value="#{todosController.selected.id}"></f:param></p:menuitem>
+                        <p:menuitem value="Изменить" icon="ui-icon-pencil" action = "#{userData.showResult}" >
+                            <f:param name = "username" value = "#{todosController.selected.id}" />
+                        </p:menuitem>
                     </p:contextMenu>                    
                 </p:panel>
             </h:form>

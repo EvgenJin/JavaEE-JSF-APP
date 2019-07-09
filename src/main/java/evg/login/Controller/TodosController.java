@@ -25,7 +25,7 @@ import javax.faces.convert.FacesConverter;
 public class TodosController implements Serializable {
 
     @EJB
-    private evg.login.SessionBean.TodosFacade ejbFacade;
+    private TodosFacade ejbFacade;
     private List<Todos> items = null;
     private Todos selected;
 

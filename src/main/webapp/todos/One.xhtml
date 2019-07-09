@@ -1,29 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
-    <f:metadata>
-        <f:viewParam name="text" value="#{id}"></f:viewParam>
-    </f:metadata>    
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-            <h:form id="TodosViewForm">
-                <h:panelGroup id="sdisplay">
-                    <p:panelGrid columns="2">
-                        <h:outputText value="id"/>
-                        <h:outputText value="#{todosController.selected.id}"/>
-                        <h:outputText value="field1"/>
-                        <h:outputText value="#{todosController.selected.description}" />
-                        <h:outputText value="field2"/>
-                        <h:outputText value="#{todosController.selected.task}"/>
-                    </p:panelGrid>
-                </h:panelGroup>
-            </h:form>
-    </h:body>
+      xmlns:h="http://java.sun.com/jsf/html">
+    
+   <h:body>
+      <h2>Result</h2>
+      <hr />
+      #{userData.data + 1}
+      <hr />
+      #{userData.select.id}
+      <hr />
+      #{userData.select.description}
+      <hr />
+      #{userData.select.task}
+      <hr />
+      #{userData.select.usr}      
+   </h:body>
 </html>
-

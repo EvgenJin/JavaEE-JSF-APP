@@ -2,16 +2,22 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
-   
-<h:head>
-	<title>login</title>
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <f:metadata>
+        <f:viewParam name="text" value="#{todosController.selected.id}"></f:viewParam>
+    </f:metadata>
+    <h:head>
+        <title>login</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
         <h:outputStylesheet name="css/primeflex/primeflex.css"/>
         <h:outputStylesheet name="css/font.css"/>
-</h:head>
-<h:body>
-    <div class="p-grid p-justify-center">
-        <div class="p-col-3">
+    </h:head>
+    <h:body>
+        <h:outputText value="Given text: #{todosController.selected.id}" />
+        <div class="p-grid p-justify-center">
+            <div class="p-col-3">
                 <div class="box">
                     <p:messages id="messages" showDetail="true" closable="true">
                         <p:autoUpdate />
@@ -30,20 +36,21 @@
                         </p:panel>    
                     </h:form>
                 </div>
+            </div>
         </div>
-    </div>
-   
-<!--    <div class="p-grid p-justify-center" >
-         <div class="p-col-12 p-md-6 p-lg-3">
-            <div class="box">Второй блок</div>
-        </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
-            <div class="box">Третий блок</div>
-        </div>
-        <div class="p-col-12 p-md-6 p-lg-3">
-            <div class="box">Четвертный блок</div>
-        </div>         
-    </div>  -->
-</h:body>
+
+        <!--    <div class="p-grid p-justify-center" >
+                 <div class="p-col-12 p-md-6 p-lg-3">
+                    <div class="box">Второй блок</div>
+                </div>
+                <div class="p-col-12 p-md-6 p-lg-3">
+                    <div class="box">Третий блок</div>
+                </div>
+                <div class="p-col-12 p-md-6 p-lg-3">
+                    <div class="box">Четвертный блок</div>
+                </div>         
+            </div>  -->
+    </h:body>
+
 </html>
 
