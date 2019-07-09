@@ -24,7 +24,7 @@
                               headerText="Id"
                               filterMatchMode="contains"
                               id="clm">
-                      <h:outputText value="#{car.id}" />
+                      <h:outputText value="#{item.id}" />
                     </p:column>
                     <p:column filterBy="#{item.description}"
                               headerText="Id"
@@ -80,7 +80,7 @@
                             <!--<p:commandButton value="View"   id="viewButton"   icon="ui-icon-search" update=":TodosViewForm" oncomplete="PF('TodosViewDialog').show()" disabled="#{empty todosController.selected}"/>-->
                             <p:commandButton value="View"   id="viewButton" action = "#{userData.showResult}" >
                                 <f:param name = "username" value = "#{todosController.selected.id}" />
-                            </p:commandButton>
+                            </p:commandButton>                            
                             <p:commandButton value="Edit"   id="editButton"   icon="ui-icon-pencil" update=":TodosEditForm" oncomplete="PF('TodosEditDialog').show()" disabled="#{empty todosController.selected}"/>
                             <p:commandButton value="Delete" id="deleteButton" icon="ui-icon-trash"  actionListener="#{todosController.destroy}" update=":growl,datalist" disabled="#{empty todosController.selected}"/>
                         </f:facet>

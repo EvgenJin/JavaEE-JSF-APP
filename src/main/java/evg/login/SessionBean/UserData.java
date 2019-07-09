@@ -30,6 +30,7 @@ public class UserData implements Serializable {
    public Long data;
    
    private Todos select;
+   private String access_edit = "true";
    
     public Todos getSelect() {
         select = getFacade().find(data);
@@ -38,18 +39,20 @@ public class UserData implements Serializable {
 
     public void setSelected(Todos select) {
         this.select = select;
-    }   
+    }
+    
+    public String getAccess_edit() {
 
-//   public Integer getData() {
-//      return Integer.parseInt(data);
-//   }
+        return this.access_edit;
+    }
+
+    public void setAccess_edit(String access_edit) {
+        this.access_edit = access_edit;
+    }    
+
    public Long getData() {
        return data;
    } 
-   
-//   public String getData() {
-//      return data;
-//   }   
 
    public void setData(Long data) {
       this.data = data;

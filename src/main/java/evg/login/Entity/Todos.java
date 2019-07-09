@@ -7,6 +7,7 @@ package evg.login.Entity;
 
 import static evg.login.Util.SessionUtils.getUserName;
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -47,6 +48,12 @@ public class Todos implements Serializable {
     @Size(max = 255)
     @Column(name = "USR")
     private String usr;
+    @Column(name = "D_START")
+    private Date dstart;
+    @Column(name = "D_END")
+    private Date dend;
+    @Column(name = "STATE")
+    private String state;
     
     public Todos() {
     }
@@ -85,8 +92,36 @@ public class Todos implements Serializable {
 
     public void setUsr(String usr) {
         this.usr = usr;
-    }    
+    }
+    
+    public Date getDstart(){
+        return dstart;
+    }
+    
+    public void setDstart(Date dstart) {
+        this.dstart = dstart;
+    }
 
+    public Date getDend(){
+        return dend;
+    }
+    
+    public void setDend(Date dend) {
+        this.dend = dend;
+    }    
+    
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }    
+    
+    
+    
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;

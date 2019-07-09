@@ -1,19 +1,224 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
-    
-   <h:body>
-      <h2>Result</h2>
-      <hr />
-      #{userData.data + 1}
-      <hr />
-      #{userData.select.id}
-      <hr />
-      #{userData.select.description}
-      <hr />
-      #{userData.select.task}
-      <hr />
-      #{userData.select.usr}      
-   </h:body>
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="ToDoList"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            
+            
+<!--    <p:tabMenu activeIndex="#{param.i}">
+        <p:menuitem value="Overview" outcome="index" icon="pi pi-star">
+            <f:param name="i" value="0" />
+        </p:menuitem>
+        <p:menuitem value="Demos" outcome="index" icon="pi pi-search">
+            <f:param name="i" value="1" />
+        </p:menuitem>
+        <p:menuitem value="Documentation" outcome="index" icon="pi pi-file">
+            <f:param name="i" value="2" />
+        </p:menuitem>
+        <p:menuitem value="Support" outcome="index" icon="pi pi-briefcase">
+            <f:param name="i" value="3" />
+        </p:menuitem>
+        <p:menuitem value="Social" outcome="index" icon="pi pi-user">
+            <f:param name="i" value="4" />
+        </p:menuitem>
+    </p:tabMenu>            -->
+            <!--columnClasses="ui-g-12 ui-md-1,ui-g-12 ui-md-2"-->
+        <h:form>
+            <div class="ui-fluid">
+                <p:panelGrid columns="4" style="text-align: center;width:50%" 
+                             styleClass="ui-panelgrid ui-fluid" layout="grid"
+                             
+                             >
+                                <p:row>
+                                    <p:column>area</p:column>
+                                    <p:column>
+                                         <p:inputText id="area"/>
+                                    </p:column>
+                                </p:row>    
+                                <p:row>
+                                    <p:column>area</p:column>
+                                    <p:column>
+                                         <p:inputText id="area9"/>
+                                    </p:column>
+                                </p:row>                     
+<!--                    <p:outputLabel for="input" value="Input"/>
+                    <p:inputText  disabled= "#{userData.access_edit}" id="input"/>
+
+                    <p:outputLabel for="area" value="Textarea"/>
+                    <p:inputTextarea id="area"/>
+
+                    <p:outputLabel for="calendar" value="Calendar"/>
+                    <p:calendar id="calendar"/>
+                   
+                    <p:outputLabel for="area" value="Textarea"/>
+                    <p:inputTextarea id="area1"/>
+                    
+                    <p:outputLabel for="area" value="Textarea"/>
+                    <p:inputTextarea id="area2"/>
+                    
+                    <p:outputLabel for="area" value="Textarea"/>
+                    <p:inputTextarea id="area3"/>
+                    
+                    <p:outputLabel for="area" value="Textarea"/>
+                    <p:inputTextarea id="area4"/>                    -->
+                </p:panelGrid>
+            </div>
+        </h:form>
+        <h:form>
+        <p:panelGrid columns="2">
+            <f:facet name="header">
+                <p:row>
+                    <p:column colspan="7">Задачи</p:column>
+                </p:row>                
+            </f:facet>
+
+            <h:outputText value="id" />
+            <p:inputText  disabled= "#{userData.access_edit}" value="#{userData.select.id}" id="input_id"/>
+
+            <h:outputText value="User" />
+            <p:inputText  disabled= "#{userData.access_edit}" value="#{userData.select.usr}" id="input_usr"/>
+
+            <h:outputText value="Task" />
+            <p:inputText  value="#{userData.select.task}" id="input_task"/>
+            
+            <h:outputText value="Descriprion" />
+            <p:inputTextarea value="#{userData.select.description}" id="input_desc"/>
+            
+            <p:outputLabel value="Calendar" for="calendar" />
+            <p:calendar value="#{userData.select.dstart}" id="date_start"/>         
+            
+            <!--<p:outputLabel for="calendar" value="Calendar"/>-->
+            <!--<p:calendar value="#{userData.select.dend}" id="calendar"/>-->
+            
+        </p:panelGrid>          
+
+        <p:panelGrid style="margin-top:20px">
+            <f:facet name="header">
+                <p:row>
+                    <p:column colspan="6">Задача</p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="2">Дата начала</p:column>
+                    <p:column colspan="2">Дата окончания</p:column>
+                    <p:column colspan="2">Статус</p:column>
+                </p:row>
+
+            </f:facet>
+
+            <p:row>
+                <p:column>
+                <p:calendar value="#{userData.select.dend}" id="calendar"/>
+                </p:column>
+<!--                <p:column style="font-weight: bold;">Seattle</p:column>-->
+                <p:column rowspan="2" style="font-weight: bold;">Seattle</p:column>
+                <p:column rowspan="2" style="font-weight: bold;">4</p:column>
+
+                <p:column rowspan="5">Seattle</p:column>
+                <p:column rowspan="5">2</p:column>
+
+                <p:column rowspan="11" style="font-weight: bold;">Chicago</p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Housываfdgdfgdfgdfgdfgdfgdfgdfgdfgdfgfdtosn</p:column>
+                <p:column >0</p:column>
+            </p:row>
+
+            <p:row>
+                <p:column colspan="4" styleClass="ui-widget-header">
+                    <p:spacer height="0"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column style="font-weight: bold;">Utah</p:column>
+                <p:column style="font-weight: bold;">4</p:column>
+
+                <p:column rowspan="2">Utah</p:column>
+                <p:column rowspan="2">3</p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>San Antonio</p:column>
+                <p:column >2</p:column>
+            </p:row>
+
+            <p:row>
+                <p:column colspan="6" styleClass="ui-widget-header">
+                    <p:spacer height="0"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column style="font-weight: bold;">Chicago</p:column>
+                <p:column style="font-weight: bold;">4</p:column>
+
+                <p:column rowspan="2" style="font-weight: bold;">Chicago</p:column>
+                <p:column rowspan="2" style="font-weight: bold;">4</p:column>
+
+                <p:column rowspan="5" style="font-weight: bold;">Chicago</p:column>
+                <p:column rowspan="5" style="font-weight: bold;">4</p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>New York</p:column>
+                <p:column >1</p:column>
+            </p:row>
+
+            <p:row>
+                <p:column colspan="4" styleClass="ui-widget-header">
+                    <p:spacer height="0"/>
+                </p:column>
+            </p:row>
+
+            <p:row>
+                <p:column>Atlanta</p:column>
+                <p:column >1</p:column>
+
+                <p:column rowspan="2">Orlando</p:column>
+                <p:column rowspan="2">0</p:column>
+            </p:row>
+
+            <p:row>
+                <p:column style="font-weight: bold;">Orlando</p:column>
+                <p:column style="font-weight: bold;">4</p:column>
+            </p:row>
+
+
+            <f:facet name="footer">
+                <p:row>
+                    <p:column  colspan="4" style="text-align: right">
+                        Finals MVP
+                    </p:column>
+                    <p:column  colspan="3" rowspan="3">
+                        Michael Jordan (Chicago)
+                    </p:column>
+                </p:row>
+
+                <p:row>
+                    <p:column  colspan="4" style="text-align: right">
+                        Season MVP
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column  colspan="4" style="text-align: right">
+                        Top Scorer
+                    </p:column>
+                </p:row>
+            </f:facet>
+        </p:panelGrid>            
+        </h:form>
+        </ui:define>
+    </ui:composition>
 </html>
