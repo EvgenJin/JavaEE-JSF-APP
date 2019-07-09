@@ -53,14 +53,9 @@ target/maven-archiver/pom.properties
 target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
 target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 target/login-1.0/admin.xhtml
-pom.xml
 src/main/webapp/WEB-INF/glassfish-resources.xml
 src/main/resources/META-INF/persistence.xml
 pom.xml
-pom.xml
-src/main/java/evg/login/Dao/LoginDAO.java
-src/main/webapp/WEB-INF/glassfish-resources.xml
-src/main/java/evg/login/Dao/LoginDAO.java
 src/main/webapp/WEB-INF/glassfish-resources.xml
 src/main/resources/META-INF/persistence.xml
 src/main/webapp/WEB-INF/glassfish-resources.xml
