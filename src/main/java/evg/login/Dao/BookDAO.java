@@ -6,6 +6,7 @@
 package evg.login.Dao;
 
 import evg.login.Entity.Book;
+import java.math.BigDecimal;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -56,4 +57,8 @@ public class BookDAO {
 
         em.remove(book);
     }    
+
+    public Book findById(BigDecimal id) {
+        return em.find(Book.class, id);
+    }
 }
