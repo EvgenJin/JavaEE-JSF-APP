@@ -15,6 +15,64 @@
 
         <ui:define name="body">
             
+            <div class="p-grid p-justify-center" style="margin-top:10px;">
+                <div class="p-col-12 p-md-6 p-lg-4">
+                    <h:form>
+                        <p:panel id="basic" header="Первый блок">
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="12" >
+                                <p:outputLabel for="todo_id" value="ID Задачи"/>
+                                <p:inputText style="width: 30px" disabled= "#{userData.access_edit}" value="#{userData.select.id}" id="todo_id"/>
+                                <p:outputLabel for="area9" value="Пользователь"/>
+                                <p:inputText style="width: 100px" id="area9"/>
+                            </p:panelGrid>
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="12">
+                                <p:outputLabel for="area98" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area98"/>
+                                <p:outputLabel for="area99" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area99"/>
+                            </p:panelGrid>
+                        </p:panel>    
+                    </h:form>
+                </div>
+                
+                <div class="p-col-12 p-md-6 p-lg-4">
+<!--                    <h:form>
+                        <p:panel id="basic" header="Второй блок">
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="12" >
+                                <p:outputLabel for="area" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area"/>
+                                <p:outputLabel for="area" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area9"/>
+                            </p:panelGrid>
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="12">
+                                <p:outputLabel for="area" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area98"/>
+                                <p:outputLabel for="area" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area99"/>                    
+                            </p:panelGrid>
+                        </p:panel>    
+                    </h:form>-->
+                </div>                     
+                
+                 <div class="p-col-12 p-md-6 p-lg-4">
+<!--                    <h:form>
+                        <p:panel id="basic" header="Третий блок">
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="12" >
+                                <p:outputLabel for="area" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area"/>
+                                <p:outputLabel for="area" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area9"/>
+                            </p:panelGrid>
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="12">
+                                <p:outputLabel for="area" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area98"/>
+                                <p:outputLabel for="area" value="Textarea"/>
+                                <p:inputText style="width: 100px" id="area99"/>                    
+                            </p:panelGrid>
+                        </p:panel>    
+                    </h:form>-->
+                </div>                
+            </div>    
             
 <!--    <p:tabMenu activeIndex="#{param.i}">
         <p:menuitem value="Overview" outcome="index" icon="pi pi-star">
@@ -35,7 +93,9 @@
     </p:tabMenu>            -->
             <!--columnClasses="ui-g-12 ui-md-1,ui-g-12 ui-md-2"-->
             <!--styleClass="ui-panelgrid-blank ui-fluid" layout="grid"-->
-        <div class="p-grid p-justify-center">
+            
+            
+<!--        <div class="p-grid p-justify-center">
         <div class="p-col-12 p-md-1 p-lg-1">
         <h:form>
             <p:panel id="basic" header="Basic" style="margin-bottom:20px;">
@@ -54,8 +114,10 @@
             </p:panel>    
         </h:form>
         </div>
-        </div>    
-        <h:form>
+        </div>-->
+            
+            
+<!--        <h:form>
         <p:panelGrid columns="2">
             <f:facet name="header">
                 <p:row>
@@ -64,7 +126,7 @@
             </f:facet>
 
             <h:outputText value="id" />
-            <p:inputText  disabled= "#{userData.access_edit}" value="#{userData.select.id}" id="input_id"/>
+            
 
             <h:outputText value="User" />
             <p:inputText  disabled= "#{userData.access_edit}" value="#{userData.select.usr}" id="input_usr"/>
@@ -78,8 +140,8 @@
             <p:outputLabel value="Calendar" for="calendar" />
             <p:calendar value="#{userData.select.dstart}" id="date_start"/>         
             
-            <!--<p:outputLabel for="calendar" value="Calendar"/>-->
-            <!--<p:calendar value="#{userData.select.dend}" id="calendar"/>-->
+            <p:outputLabel for="calendar" value="Calendar"/>
+            <p:calendar value="#{userData.select.dend}" id="calendar"/>
             
         </p:panelGrid>          
 
@@ -100,7 +162,7 @@
                 <p:column>
                 <p:calendar value="#{userData.select.dend}" id="calendar"/>
                 </p:column>
-<!--                <p:column style="font-weight: bold;">Seattle</p:column>-->
+                <p:column style="font-weight: bold;">Seattle</p:column>
                 <p:column rowspan="2" style="font-weight: bold;">Seattle</p:column>
                 <p:column rowspan="2" style="font-weight: bold;">4</p:column>
 
@@ -198,7 +260,7 @@
                 </p:row>
             </f:facet>
         </p:panelGrid>            
-        </h:form>
+        </h:form>-->
         </ui:define>
     </ui:composition>
 </html>
