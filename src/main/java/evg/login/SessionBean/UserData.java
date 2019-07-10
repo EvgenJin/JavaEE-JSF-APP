@@ -5,6 +5,7 @@
  */
 package evg.login.SessionBean;
 
+import evg.login.Dao.TodosDAO;
 import evg.login.Entity.Todos;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -21,28 +22,40 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class UserData implements Serializable {
     @EJB
-    private TodosFacade ejbFacade;   
-    private TodosFacade getFacade() {
+//    private TodosFacade ejbFacade;   
+    private TodosDAO ejbFacade;   
+    private TodosDAO getFacade() {
         return ejbFacade;
-    }    
+    }
+    
+    public void setFacade(TodosDAO ejbFacade) {
+        this.ejbFacade = ejbFacade;
+    }
     
    private static final long serialVersionUID = 1L;
    public Long data;
    
    private Todos select;
+   
    private String access_edit = "true";
    
     public Todos getSelect() {
-        select = getFacade().find(data);
+        select = getFacade().findById(data);
         return select;
     }
 
-    public void setSelected(Todos select) {
-        this.select = select;
+    public void setSelect(Todos select) {
+          this.select.setId(select.getId());
+          this.select.setDend(select.getDend());
+          this.select.setDescription(select.getDescription());
+          this.select.setDstart(select.getDstart());
+          this.select.setState(select.getState());
+          this.select.setTask(select.getTask());
+          this.select.setUsr(select.getUsr());
+//          this.select = select;
     }
     
     public String getAccess_edit() {
-
         return this.access_edit;
     }
 
@@ -67,6 +80,13 @@ public class UserData implements Serializable {
    }
    
     public Todos getTodos() {
-        return getFacade().find(data);
-    }   
+        return getFacade().findById(data);
+    }
+    
+    public void saveTodos() {
+        System.out.println(select.getTask());
+        getFacade().update(select);
+    }
+    
+    
 }

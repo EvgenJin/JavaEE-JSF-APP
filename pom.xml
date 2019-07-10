@@ -55,6 +55,12 @@
             <version>7.0</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.adminfaces</groupId>
+            <artifactId>admin-theme</artifactId>
+            <version>1.0.0</version>
+        <!--<classifier>dev</classifier> uncompressed theme.css-->
+        </dependency>        
     </dependencies>
 
     <build>

@@ -16,23 +16,39 @@
         <ui:define name="body">
             
             <div class="p-grid p-justify-center" style="margin-top:10px;">
-                <div class="p-col-12 p-md-6 p-lg-4">
+                <div class="p-grid p-col-12 p-md-6 p-lg-4">
                     <h:form>
                         <p:panel id="basic" header="Первый блок">
-                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="12" >
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="6" >
                                 <p:outputLabel for="todo_id" value="ID Задачи"/>
-                                <p:inputText style="width: 30px" disabled= "#{userData.access_edit}" value="#{userData.select.id}" id="todo_id"/>
-                                <p:outputLabel for="area9" value="Пользователь"/>
-                                <p:inputText style="width: 100px" id="area9"/>
+                                <p:inputText style="width: 100px" disabled= "#{userData.access_edit}" value="#{userData.select.id}" id="todo_id"/>
+                                <p:outputLabel for="input_usr" value="Пользователь"/>
+                                <p:inputText  disabled= "#{userData.access_edit}" value="#{userData.select.usr}" id="input_usr"/>
+                                <p:outputLabel for="input_dstart" value="Дата задачи"/>
+                                <p:inputText style="width: 100px" disabled= "#{userData.access_edit}" value="#{userData.select.dstart}" id="input_dstart"/>
                             </p:panelGrid>
-                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="12">
-                                <p:outputLabel for="area98" value="Textarea"/>
-                                <p:inputText style="width: 100px" id="area98"/>
-                                <p:outputLabel for="area99" value="Textarea"/>
-                                <p:inputText style="width: 100px" id="area99"/>
-                            </p:panelGrid>
-                        </p:panel>    
+                        </p:panel>
                     </h:form>
+                    <h:form>
+                        <p:panel id="details" header="Второй блок">
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="1">
+                                <p:selectOneButton value="#{userData.select.state}">
+                                    <f:selectItem itemLabel="Ждет" itemValue="wait" />
+                                    <f:selectItem itemLabel="В работе" itemValue="work" />
+                                    <f:selectItem itemLabel="Готово" itemValue="done" />
+                                </p:selectOneButton>
+                            </p:panelGrid>    
+                            <p:panelGrid styleClass="ui-panelgrid-blank" class = "p-justify-center" columns="2">    
+                                <p:outputLabel for="task" value="Заголовок"/>
+                                <p:inputTextarea style="width: 200px" id="task" value="#{userData.select.task}"/>
+                                <p:outputLabel for="description" value="Описание"/>
+                                <p:inputTextarea style="width: 800px" id="description" value="#{userData.select.description}"/>                                
+                            </p:panelGrid>                       
+                        </p:panel>
+                        <p:commandButton actionListener="#{userData.saveTodos}" value="Сохранить" icon="pi pi-check" />
+                    <p:spacer />                         
+                    </h:form>
+                   
                 </div>
                 
                 <div class="p-col-12 p-md-6 p-lg-4">
@@ -129,7 +145,7 @@
             
 
             <h:outputText value="User" />
-            <p:inputText  disabled= "#{userData.access_edit}" value="#{userData.select.usr}" id="input_usr"/>
+            
 
             <h:outputText value="Task" />
             <p:inputText  value="#{userData.select.task}" id="input_task"/>

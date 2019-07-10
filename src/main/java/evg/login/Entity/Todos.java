@@ -52,7 +52,7 @@ public class Todos implements Serializable {
     private Date dstart;
     @Column(name = "D_END")
     private Date dend;
-    @Column(name = "STATE")
+    @Column(name = "STATUS")
     private String state;
     
     public Todos() {
@@ -117,11 +117,6 @@ public class Todos implements Serializable {
     public void setState(String state) {
         this.state = state;
     }    
-    
-    
-    
-    
-    
     @Override
     public int hashCode() {
         int hash = 0;
