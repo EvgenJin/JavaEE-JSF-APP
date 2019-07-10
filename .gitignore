@@ -67,3 +67,4 @@ src/main/resources/META-INF/persistence.xml
 src/main/webapp/WEB-INF/glassfish-resources.xml
 src/main/webapp/WEB-INF/glassfish-resources.xml
 src/main/webapp/WEB-INF/glassfish-resources.xml
+src/main/java/evg/login/Dao/LoginDAO.java
