@@ -15,10 +15,15 @@
         <h:outputStylesheet name="css/font.css"/>
     </h:head>
     <h:body>
-        <h:outputText value="Given text: #{todosController.selected.id}" />
         <div class="p-grid p-justify-center">
-            <div class="p-col-3">
-                <div class="box">
+
+        </div>
+            <div class="p-grid p-justify-center" >
+                 <div class="p-col-12 p-md-6 p-lg-5">
+                    <div class="box"></div>
+                </div>
+                <div class="p-col-12 p-md-6 p-lg-2">
+                    <div class="box">
                     <p:messages id="messages" showDetail="true" closable="true">
                         <p:autoUpdate />
                     </p:messages>
@@ -34,22 +39,13 @@
                                 <p:commandButton action="#{login.validateUsernamePassword}" value="Login" ></p:commandButton>
                             </h:panelGrid>
                         </p:panel>    
-                    </h:form>
+                    </h:form>                        
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <!--    <div class="p-grid p-justify-center" >
-                 <div class="p-col-12 p-md-6 p-lg-3">
-                    <div class="box">Второй блок</div>
-                </div>
-                <div class="p-col-12 p-md-6 p-lg-3">
-                    <div class="box">Третий блок</div>
-                </div>
-                <div class="p-col-12 p-md-6 p-lg-3">
-                    <div class="box">Четвертный блок</div>
+                <div class="p-col-12 p-md-6 p-lg-5">
+                    <div class="box"></div>
                 </div>         
-            </div>  -->
+            </div>  
     </h:body>
 
 </html>

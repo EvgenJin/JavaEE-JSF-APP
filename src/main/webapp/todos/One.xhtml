@@ -34,47 +34,27 @@
         </p:menuitem>
     </p:tabMenu>            -->
             <!--columnClasses="ui-g-12 ui-md-1,ui-g-12 ui-md-2"-->
+            <!--styleClass="ui-panelgrid-blank ui-fluid" layout="grid"-->
+        <div class="p-grid p-justify-center">
+        <div class="p-col-12 p-md-1 p-lg-1">
         <h:form>
-            <div class="ui-fluid">
-                <p:panelGrid columns="4" style="text-align: center;width:50%" 
-                             styleClass="ui-panelgrid ui-fluid" layout="grid"
-                             
-                             >
-                                <p:row>
-                                    <p:column>area</p:column>
-                                    <p:column>
-                                         <p:inputText id="area"/>
-                                    </p:column>
-                                </p:row>    
-                                <p:row>
-                                    <p:column>area</p:column>
-                                    <p:column>
-                                         <p:inputText id="area9"/>
-                                    </p:column>
-                                </p:row>                     
-<!--                    <p:outputLabel for="input" value="Input"/>
-                    <p:inputText  disabled= "#{userData.access_edit}" id="input"/>
-
+            <p:panel id="basic" header="Basic" style="margin-bottom:20px;">
+                <p:panelGrid styleClass="ui-panelgrid-blank" columns="12" >
                     <p:outputLabel for="area" value="Textarea"/>
-                    <p:inputTextarea id="area"/>
-
-                    <p:outputLabel for="calendar" value="Calendar"/>
-                    <p:calendar id="calendar"/>
-                   
+                    <p:inputText style="width: 100px" id="area"/>
                     <p:outputLabel for="area" value="Textarea"/>
-                    <p:inputTextarea id="area1"/>
-                    
-                    <p:outputLabel for="area" value="Textarea"/>
-                    <p:inputTextarea id="area2"/>
-                    
-                    <p:outputLabel for="area" value="Textarea"/>
-                    <p:inputTextarea id="area3"/>
-                    
-                    <p:outputLabel for="area" value="Textarea"/>
-                    <p:inputTextarea id="area4"/>                    -->
+                    <p:inputText style="width: 100px" id="area9"/>
                 </p:panelGrid>
-            </div>
+                <p:panelGrid styleClass="ui-panelgrid-blank" columns="12">
+                    <p:outputLabel for="area" value="Textarea"/>
+                    <p:inputText style="width: 100px" id="area98"/>
+                    <p:outputLabel for="area" value="Textarea"/>
+                    <p:inputText style="width: 100px" id="area99"/>                    
+                </p:panelGrid>
+            </p:panel>    
         </h:form>
+        </div>
+        </div>    
         <h:form>
         <p:panelGrid columns="2">
             <f:facet name="header">

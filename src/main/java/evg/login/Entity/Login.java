@@ -62,11 +62,6 @@ public class Login implements Serializable {
                                 , new FacesMessage(FacesMessage.SEVERITY_ERROR
                                                    ,"Не правильное имя пользователя или пароль"
                                                    ,"Проверьте реквизиты"));
-//			FacesContext.getCurrentInstance().addMessage(
-//					null,
-//					new FacesMessage(FacesMessage.SEVERITY_WARN,
-//							"Incorrect Username and Passowrd",
-//							"Please enter correct username and Password"));
 			return null;
 		}
 	}
