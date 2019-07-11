@@ -60,10 +60,7 @@ public class UserData implements Serializable {
        this.data = data;
     }
 
-   public String showResult() {
-      FacesContext fc = FacesContext.getCurrentInstance();
-      Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
-      
+   public String showResult() {     
       data =  Long.parseLong(JsfUtil.getRequestParameter("todo_id"));
 //       System.out.println(data);
       select = getFacade().findById(data);
