@@ -44,8 +44,8 @@ public class TodosContr implements Serializable {
         return dao.findById(id);
     }
     
-   
-    public List<Todos> getTodos() {
+      
+    public List<Todos> getTodos_list() {
         todos_list = getDao().getAll();
         return todos_list;
     }
@@ -53,6 +53,11 @@ public class TodosContr implements Serializable {
     public void delete() {
         todos_list.remove(select);
         select = null;
+    }
+    
+    public void saveTodos() {
+        System.out.println(select.getTask());
+        getDao().update(select);
     }    
     
 }

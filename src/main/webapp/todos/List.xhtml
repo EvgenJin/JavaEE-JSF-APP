@@ -14,90 +14,54 @@
         </ui:define>
 
         <ui:define name="body">
-            <h:form>            
-                <p:dataTable id="cars" var="item" value="#{todosController.items}" widgetVar="carsTable" paginator="true"
-                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                 rowsPerPageTemplate="5,10,15"
-                 selection="#{todosController.selected}" selectionMode="single" rowKey="#{item.id}"
-                 >                             
+            <h:form id="TodosListForm">
+                <p:panel header="panel header">
+                <p:dataTable id="datalist" var="item" value="#{todoContr.todos_list}"
+                 paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {RowsPerPageDropdown}"
+                 rowsPerPageTemplate="5,10,15" rows="10"
+                 selection="#{todoContr.select}" selectionMode="single" rowKey="#{item.id}"
+                 >      
+                    <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
+                    <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
                     <p:column filterBy="#{item.id}"
                               headerText="Id"
                               filterMatchMode="contains"
                               id="clm">
-                      <h:outputText value="#{item.id}" />
+                        <f:facet name="header">
+                            <h:outputText value="id"/>
+                        </f:facet>                   
+                        <h:outputText value="#{item.id}" />
                     </p:column>
                     <p:column filterBy="#{item.description}"
                               headerText="Id"
                               filterMatchMode="contains"
                               id="clms">
-                      <h:outputText value="#{item.description}" />
+                        <f:facet name="header">
+                            <h:outputText value="description"/>
+                        </f:facet>                        
+                    <h:outputText value="#{item.description}" />
                     </p:column>                    
                     <p:column>
                         <f:facet name="header">
                             <h:outputText value="Task"/>
                         </f:facet>
-                        <h:outputText value="#{item.task}"/>
+                    <h:outputText value="#{item.task}"/>
                     </p:column>
+                    <f:facet name="footer">
+                        <p:commandButton value="Create" id="createButton" icon="ui-icon-plus"/>
+                        <p:commandButton value="View"   id="viewButton" action = "#{userData.showResult}" >
+                            <f:param name = "username" value = "#{todoContr.select.id}" />
+                        </p:commandButton>                            
+                        <p:commandButton value="Edit"   id="editButton"   icon="ui-icon-pencil"/>
+                        <p:commandButton value="Delete" id="deleteButton" icon="ui-icon-trash"/>
+                    </f:facet>                    
                 </p:dataTable>
-                <p:contextMenu for="cars">
+                <p:contextMenu for="TodosListForm">
                     <p:menuitem value="View" icon="pi pi-search"/>
-                    <p:menuitem value="Delete" icon="pi pi-times" action="#{todosController.destroy}"/>
-                </p:contextMenu>                
-            </h:form>            
-            <h:form id="TodosListForm">
-                <p:panel header="panel header">
-                    <p:dataTable id="datalist" value="#{todosController.items}" var="item"
-                                 selectionMode="single" selection="#{todosController.selected}"
-                                 paginator="true"
-                                 rowKey="#{item.id}"
-                                 rows="10"
-                                 rowsPerPageTemplate="10,20,30,40,50"
-                                 >
-
-                        <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
-                        <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="id"/>
-                            </f:facet>
-                            <h:outputText value="#{item.id}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="description"/>
-                            </f:facet>
-                            <h:outputText value="#{item.description}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Title_task"/>
-                            </f:facet>
-                            <h:outputText value="#{item.task}"/>
-                        </p:column>
-                        <f:facet name="footer">
-                            <p:commandButton value="Create" id="createButton" icon="ui-icon-plus"   actionListener="#{todosController.prepareCreate}" update=":TodosCreateForm" oncomplete="PF('TodosCreateDialog').show()"/>
-                            <!--<p:commandButton value="View"   id="viewButton"   icon="ui-icon-search" update=":TodosViewForm" oncomplete="PF('TodosViewDialog').show()" disabled="#{empty todosController.selected}"/>-->
-                            <p:commandButton value="View"   id="viewButton" action = "#{userData.showResult}" >
-                                <f:param name = "username" value = "#{todosController.selected.id}" />
-                            </p:commandButton>                            
-                            <p:commandButton value="Edit"   id="editButton"   icon="ui-icon-pencil" update=":TodosEditForm" oncomplete="PF('TodosEditDialog').show()" disabled="#{empty todosController.selected}"/>
-                            <p:commandButton value="Delete" id="deleteButton" icon="ui-icon-trash"  actionListener="#{todosController.destroy}" update=":growl,datalist" disabled="#{empty todosController.selected}"/>
-                        </f:facet>
-                    </p:dataTable>
-                    <p:contextMenu for="datalist">
-                        <p:menuitem value="Просмотр" icon="pi pi-search" update=":TodosViewForm" oncomplete="PF('TodosViewDialog').show()"/>
-                        <p:menuitem value="Удалить" icon="ui-icon-closethick" update=":growl,datalist" action ="#{todosController.destroy}"/>
-                        <p:menuitem value="Изменить" icon="ui-icon-pencil" action = "#{userData.showResult}" >
-                            <f:param name = "username" value = "#{todosController.selected.id}" />
-                        </p:menuitem>
-                    </p:contextMenu>                    
+                    <p:menuitem value="Delete" icon="pi pi-times" action="#{todoContr.delete}"/>
+                </p:contextMenu>
                 </p:panel>
-            </h:form>
-
-            <ui:include src="Create.xhtml"/>
-            <ui:include src="Edit.xhtml"/>
-            <ui:include src="View.xhtml"/>
+            </h:form>            
         </ui:define>
     </ui:composition>
 
