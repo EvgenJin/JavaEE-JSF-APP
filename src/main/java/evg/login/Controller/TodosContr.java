@@ -51,13 +51,15 @@ public class TodosContr implements Serializable {
     }
     
     public void delete() {
-        todos_list.remove(select);
+//        todos_list.remove(select);
         select = null;
+//        dao.delete(select);
+//        getDao().delete(select);
+//        System.out.println(select.getId());
     }
     
     public void saveTodos() {
-        System.out.println(select.getTask());
         getDao().update(select);
-    }    
+    }
     
 }

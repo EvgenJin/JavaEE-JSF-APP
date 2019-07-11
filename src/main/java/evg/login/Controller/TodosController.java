@@ -3,7 +3,6 @@ package evg.login.Controller;
 import evg.login.Entity.Todos;
 import evg.login.Controller.util.JsfUtil;
 import evg.login.Controller.util.JsfUtil.PersistAction;
-import static evg.login.Entity.Todos_.id;
 import evg.login.SessionBean.TodosFacade;
 import static evg.login.Util.SessionUtils.getUserName;
 
@@ -62,7 +61,6 @@ public class TodosController implements Serializable {
     }
 
     public void create() {
-        System.out.println(getUserName());
         persist(PersistAction.CREATE, ResourceBundle.getBundle("/Bundle").getString("TodosCreated"));
         if (!JsfUtil.isValidationFailed()) {
             items = null;    // Invalidate list of items to trigger re-query.

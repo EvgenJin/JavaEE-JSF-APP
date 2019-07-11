@@ -42,10 +42,9 @@ public class TodosDAO {
     }
 
     public void delete(Todos todos) {
-        if (!em.contains(todos)) {
+//        if (!em.contains(todos)) {
             todos = em.merge(todos);
-        }
-
+//        }
         em.remove(todos);
     }    
 
