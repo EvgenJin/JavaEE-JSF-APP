@@ -9,3 +9,4 @@ src/main/java/evg/login/Dao/LoginDAO.java
 src/main/webapp/WEB-INF/glassfish-resources.xml
 target/login-1.0/index.xhtml
 src/main/webapp/WEB-INF/glassfish-resources.xml
+src/main/webapp/WEB-INF/glassfish-resources.xml
