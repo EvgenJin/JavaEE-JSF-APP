@@ -55,6 +55,7 @@ public class Login implements Serializable {
 		if (valid) {
 			HttpSession session = SessionUtils.getSession();
                         session.setAttribute("username", user);
+                        user = SessionUtils.getUserName();
 			return "admin";
 		} else {
 //                    info();
@@ -77,6 +78,10 @@ public class Login implements Serializable {
 		session.invalidate();
 		return "index";
 	}
+        
+        public String getSessionUser() {
+            return SessionUtils.getUserName();
+        }
 }
 
 

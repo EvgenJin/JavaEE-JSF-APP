@@ -15,11 +15,9 @@
             <p:autoUpdate />
         </p:messages>
             <div class="p-grid p-justify-center" style="margin-top:10px;">
-                <div class="p-grid p-col-1 p-md-1 p-lg-2">
-                <p:column headerText="Test">
-                    #{todoContr.select.id}
-                </p:column>                
-                </div>
+<!--                <div class="p-grid p-col-1 p-md-1 p-lg-2">
+              
+                </div>-->
                 <div class="p-grid p-col-12 p-md-10 p-lg-8">
                     <h:form id="TodosListForm">
                          <p:panel header="panel header">
@@ -33,7 +31,7 @@
                              <p:column filterBy="#{item.task}"
                                        headerText="Задача"
                                        filterMatchMode="contains"
-                                       style="width:40%;"
+                                       style="width:30%;"
                                        >                       
                              <h:outputText value="#{item.task}" />
                              </p:column>              
@@ -41,7 +39,7 @@
                              <p:column filterBy="#{item.description}"
                                        headerText="Id"
                                        filterMatchMode="contains"
-                                       style="width:60%;"
+                                       style="width:70%;"
                                        >
                                  <f:facet name="header">
                                      <h:outputText value="description"/>
@@ -67,9 +65,9 @@
                          </p:panel>
                      </h:form>                      
                 </div>
-                <div class="p-grid p-col-1 p-md-1 p-lg-2">
+<!--                <div class="p-grid p-col-1 p-md-1 p-lg-2">
                     
-                </div>                
+                </div>                -->
             </div>
         </ui:define>
     </ui:composition>

@@ -23,6 +23,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
+import javax.persistence.StoredProcedureQuery;
 import org.primefaces.component.datatable.DataTable;
 import org.primefaces.event.SelectEvent;
 
@@ -62,16 +63,17 @@ public class UserData implements Serializable {
        this.data = data;
     }
 
-   public String showResult() {  
+   public String showResult() {
       data =  Long.parseLong(JsfUtil.getRequestParameter("todo_id"));
 //       System.out.println(data);
       select = getFacade().findById(data);
 //      System.out.println(select.getId());
+      procedure_cur();
       return "one";
    }
    
    public String createTodo() {
-      
+      select = new Todos();
       return "one";
    }   
    
@@ -79,26 +81,12 @@ public class UserData implements Serializable {
         return getFacade().findById(data);
     }
     
-    public void saveTodos() {
-        if (select.getId() != null) {
-//            getFacade().update(select);
-            System.out.println("not null");
-//            System.out.println(select.getId());
-        }
-        else {
-            select = new Todos(); 
-//            Date date = new Date();
-            select.setId(Long.valueOf(101));
-//            select = this.select;
-            select = this.select;
-//            select.setUsr(SessionUtils.getUserName());
-//            select.setDstart(date);
-//            getFacade().create(select);
-            System.out.println("!null");
-            System.out.println(select);
-//            System.out.println(select.getId());
-        }
-        
+    public String saveTodos() {
+        Date date = new Date();
+        select.setUsr(SessionUtils.getUserName());
+        select.setDstart(date);
+        getFacade().create(select);
+        return "list";
     }
     
     public void yohoo() {
@@ -115,6 +103,16 @@ public class UserData implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Info", "PrimeFaces Rocks."));
     }
     
+    public void procedure () {
+        getFacade().getCount();
+    }
+    
+    public void procedure_cur() {
+        getFacade().getListByUser();
+    }
+    
+    
+
 
     
     

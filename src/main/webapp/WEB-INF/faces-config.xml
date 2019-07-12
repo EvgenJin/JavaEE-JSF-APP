@@ -18,14 +18,14 @@
             </navigation-case>
         </navigation-rule>
         <!--логаут-->
-        <navigation-rule>
+<!--        <navigation-rule>
             <from-view-id>/admin.xhtml</from-view-id>
             <navigation-case>
                 <from-outcome>index</from-outcome>
                 <to-view-id>/index.xhtml</to-view-id>
                 <redirect/>
             </navigation-case>
-        </navigation-rule>
+        </navigation-rule>-->
         <navigation-rule>
             <navigation-case>
                 <from-outcome>index</from-outcome>
@@ -37,9 +37,16 @@
             <navigation-case>
                 <from-outcome>one</from-outcome>
                 <to-view-id>/todos/One.xhtml</to-view-id>
+                <redirect/>
+            </navigation-case>
+        </navigation-rule>             
+        <navigation-rule>
+            <navigation-case>
+                <from-outcome>list</from-outcome>
+                <to-view-id>/todos/List.xhtml</to-view-id>
                 <redirect include-view-params="true" />
             </navigation-case>
-        </navigation-rule>               
+        </navigation-rule>        
 <!--        <navigation-rule>
             <navigation-case>
                 <from-outcome>List</from-outcome>
