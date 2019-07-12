@@ -33,6 +33,7 @@
                              <p:column filterBy="#{item.task}"
                                        headerText="Задача"
                                        filterMatchMode="contains"
+                                       style="width:40%;"
                                        >                       
                              <h:outputText value="#{item.task}" />
                              </p:column>              
@@ -40,6 +41,7 @@
                              <p:column filterBy="#{item.description}"
                                        headerText="Id"
                                        filterMatchMode="contains"
+                                       style="width:60%;"
                                        >
                                  <f:facet name="header">
                                      <h:outputText value="description"/>
@@ -48,7 +50,7 @@
                              </p:column>                    
 
                              <f:facet name="footer">
-                                 <p:commandButton value="Create" id="createButton" icon="ui-icon-plus"/>
+                                 <p:commandButton action = "#{userData.createTodo}" value="Create" id="createButton" icon="ui-icon-plus"/>
                                  <p:commandButton value="View"   id="viewButton" action = "#{userData.showResult}" >
                                      <f:param name = "username" value = "#{todoContr.select.id}" />
                                  </p:commandButton>                            

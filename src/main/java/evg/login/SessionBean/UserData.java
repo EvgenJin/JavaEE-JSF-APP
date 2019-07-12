@@ -8,12 +8,14 @@ package evg.login.SessionBean;
 import evg.login.Controller.util.JsfUtil;
 import evg.login.Dao.TodosDAO;
 import evg.login.Entity.Todos;
+import evg.login.Util.SessionUtils;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import java.util.Map;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -60,7 +62,7 @@ public class UserData implements Serializable {
        this.data = data;
     }
 
-   public String showResult() {     
+   public String showResult() {  
       data =  Long.parseLong(JsfUtil.getRequestParameter("todo_id"));
 //       System.out.println(data);
       select = getFacade().findById(data);
@@ -68,13 +70,35 @@ public class UserData implements Serializable {
       return "one";
    }
    
+   public String createTodo() {
+      
+      return "one";
+   }   
+   
     public Todos getTodos() {
         return getFacade().findById(data);
     }
     
     public void saveTodos() {
-        System.out.println(this.select.getTask());
-        getFacade().update(select);
+        if (select.getId() != null) {
+//            getFacade().update(select);
+            System.out.println("not null");
+//            System.out.println(select.getId());
+        }
+        else {
+            select = new Todos(); 
+//            Date date = new Date();
+            select.setId(Long.valueOf(101));
+//            select = this.select;
+            select = this.select;
+//            select.setUsr(SessionUtils.getUserName());
+//            select.setDstart(date);
+//            getFacade().create(select);
+            System.out.println("!null");
+            System.out.println(select);
+//            System.out.println(select.getId());
+        }
+        
     }
     
     public void yohoo() {
