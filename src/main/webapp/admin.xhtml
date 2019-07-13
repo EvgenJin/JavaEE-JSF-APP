@@ -14,6 +14,13 @@
         </ui:define>       
         <ui:define name="body">
             <h1 class="my_subheader">START PAGE</h1>
+            <h:form>
+                    <p>Welcome #{login.user}</p>
+                    <h:commandLink action="#{login.logout}" value="Logout"></h:commandLink>
+                    <h:commandLink action="#{usr.showResult}" value="User Page">
+                        <f:param name = "username" value = "#{login.user}" />                        
+                    </h:commandLink>
+            </h:form>            
         </ui:define>
     </ui:composition> 
 <!--    <p:commandButton icon="fa fa-fw fa-edit" oncomplete="PF('sidebar1').show()" />
@@ -21,11 +28,8 @@
         <h1 style="font-weight:normal">Left Sidebar</h1>
         <p:commandButton value="Cancel" oncomplete="PF('sidebar1').hide()"/>
     </p:sidebar>    
-    
-	<h:form>
-		<p>Welcome #{login.user}</p>
-		<h:commandLink action="#{login.logout}" value="Logout"></h:commandLink>
-	</h:form>-->
+-->    
+
 
 </html>
 

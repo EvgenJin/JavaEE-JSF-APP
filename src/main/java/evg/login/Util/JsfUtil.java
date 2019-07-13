@@ -1,5 +1,6 @@
-package evg.login.Controller.util;
+package evg.login.Util;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -8,6 +9,21 @@ import javax.faces.convert.Converter;
 import javax.faces.model.SelectItem;
 
 public class JsfUtil {
+    
+    
+    public static String convOut (String str) throws UnsupportedEncodingException {
+        if(str == null) return null;
+        byte ptext[] = str.getBytes("ISO-8859-5");
+        String value = new String(ptext, "CP1251");
+        return value;
+    }
+    
+    public static String convIn (String str) throws UnsupportedEncodingException {
+        byte ptext[] = str.getBytes("CP1251");
+        String value = new String(ptext, "ISO-8859-5");
+        return value;
+    }    
+    
 
     public static SelectItem[] getSelectItems(List<?> entities, boolean selectOne) {
         int size = selectOne ? entities.size() + 1 : entities.size();

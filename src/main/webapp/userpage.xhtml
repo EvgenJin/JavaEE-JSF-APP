@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="UserPage"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form>
+                <p:panel id="user_info" header="Информация о пользователе">
+                    <p:panelGrid styleClass="ui-panelgrid" columns="2" >
+                        
+                        <p:outputLabel for="cusrlogname" value="Логин"/>
+                        <h:outputText value="#{usr.select.cusrlogname}" id="cusrlogname"></h:outputText>
+                        
+                        <p:outputLabel for="cusrname" value="ФИО"/>
+                        <h:outputText value="#{usr.select.cusrname}" id="cusrname"/>
+
+                        <p:outputLabel for="addrLotus" value="Адрес лотуса"></p:outputLabel>
+                        <h:outputText value="#{usr.select.addrLotus}" id="addrLotus"></h:outputText>
+                        
+                        <h:outputLabel for="ctabnum" value="Табельный номер" ></h:outputLabel>
+                        <h:outputText value="#{usr.select.ctabnum}" id="ctabnum"></h:outputText>
+                                                
+                        <h:outputLabel for="cusrposition" value="Должность"></h:outputLabel>
+                        <h:outputText value="#{usr.select.cusrposition}" id="cusrposition"></h:outputText>
+             
+                    </p:panelGrid>
+                </p:panel>
+            </h:form>
+            <h:form>
+                <p:dataTable var="car" value="#{usr.todos_list}"
+                             paginator="true" rowsPerPageTemplate="5,10,15" rows="10">
+                    <p:column headerText="Id">
+                        <h:outputText value="#{car.cusId}" />
+                    </p:column>                    
+                </p:dataTable>
+            </h:form>
+            
+          
+            
+        </ui:define>
+    </ui:composition>          
+</html>

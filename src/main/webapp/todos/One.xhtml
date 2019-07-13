@@ -19,7 +19,7 @@
                 <div class="p-grid p-col-12 p-md-6 p-lg-4">
                     <h:form>
                         <p:panel id="basic" header="Первый блок">
-                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="6" >
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="6" rendered="#{userData.select != null}">
                                 <p:outputLabel for="todo_id" value="ID Задачи"/>
                                 <p:inputText style="width: 100px" disabled= "#{userData.access_edit}" value="#{userData.select.id}" id="todo_id"/>
                                 <p:outputLabel for="input_usr" value="Пользователь"/>
