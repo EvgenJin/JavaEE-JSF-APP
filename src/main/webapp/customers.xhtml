@@ -37,6 +37,9 @@
                             <p:column headerText="Дата рождения">
                                 <h:outputText value="#{cus.dateborn}" />
                              </p:column>
+                              <p:column headerText="Коммент" filterBy="#{cus.comments}" filterMatchMode="contains">
+                                <h:outputText value="#{cus.comments}" />
+                             </p:column>                              
                          </p:dataTable>
                          
                         </p:panel>
