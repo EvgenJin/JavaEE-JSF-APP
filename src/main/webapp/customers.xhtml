@@ -14,34 +14,14 @@
                 <div class="p-grid p-col-12 p-md-10 p-lg-8">
                     <h:form>
                         <p:panel header="panel header">
-                          <p:dataTable id="customers_grid" var="cus" value="#{Customers.cus_list}"
-                                       selection="#{Customers.select}" selectionMode="single" rowKey="#{cus.id}"
-                                       scrollable="true" scrollHeight="550"
-                                       scrollRows="20" liveScroll="true"
-                          >
-                             <p:column headerText="Фамилия" filterBy="#{cus.surname}" filterMatchMode="contains">
-                                 <h:outputText value="#{cus.surname}" />
-                             </p:column>
-                             <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Имя"/>
-                                </f:facet>                        
-                                 <h:outputText value="#{cus.name}" />
-                             </p:column>
-                             <p:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Отчество"/>
-                                </f:facet>                        
-                                 <h:outputText value="#{cus.midlename}" />
-                             </p:column>
-                            <p:column headerText="Дата рождения">
-                                <h:outputText value="#{cus.dateborn}" />
-                             </p:column>
-                              <p:column headerText="Коммент" filterBy="#{cus.comments}" filterMatchMode="contains">
-                                <h:outputText value="#{cus.comments}" />
-                             </p:column>                              
-                         </p:dataTable>
-                         
+                            <p:dataTable id="customers_grid" var="cus" value="#{vwexpcus.cus_list}"
+                                scrollable="true" scrollHeight="550"
+                                
+                            >
+                                <p:column headerText="Фамилия" filterBy="#{cus.fio}" filterMatchMode="contains">
+                                    <h:outputText value="#{cus.fio}" />
+                                </p:column>
+                            </p:dataTable>                         
                         </p:panel>
                     </h:form>
                 </div>

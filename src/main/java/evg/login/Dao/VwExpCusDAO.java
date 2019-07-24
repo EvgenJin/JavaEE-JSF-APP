@@ -5,28 +5,22 @@
  */
 package evg.login.Dao;
 
-import evg.login.Entity.Cus;
+import evg.login.Entity.VwExpCus;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class CusDAO {
-    
+public class VwExpCusDAO {
     @PersistenceContext(unitName = "pers")
     private EntityManager em;
-    
+
     protected EntityManager getEntityManager() {
         return em;
     }
     
     public List getAll() {
-        return em.createNamedQuery("Cus.findAll", Cus.class).getResultList();
-    }
-    
-    public void update(Cus cus) {
-        em.merge(cus);
+        return em.createNamedQuery("VwExpCus.findAll", VwExpCus.class).getResultList();
     }    
-    
 }
