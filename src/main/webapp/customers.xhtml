@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="Customers"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <div class="p-grid p-justify-center" style="margin-top:10px;">
+                <div class="p-grid p-col-12 p-md-10 p-lg-8">
+                    <h:form>
+                        <p:panel header="panel header">
+                          <p:dataTable id="customers_grid" var="cus" value="#{Customers.cus_list}"
+                                       selection="#{Customers.select}" selectionMode="single" rowKey="#{cus.id}"
+                                       scrollable="true" scrollHeight="550"
+                                       scrollRows="20" liveScroll="true"
+                          >
+                             <p:column headerText="Фамилия" filterBy="#{cus.surname}" filterMatchMode="contains">
+                                 <h:outputText value="#{cus.surname}" />
+                             </p:column>
+                             <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Имя"/>
+                                </f:facet>                        
+                                 <h:outputText value="#{cus.name}" />
+                             </p:column>
+                             <p:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Отчество"/>
+                                </f:facet>                        
+                                 <h:outputText value="#{cus.midlename}" />
+                             </p:column>
+                            <p:column headerText="Дата рождения">
+                                <h:outputText value="#{cus.dateborn}" />
+                             </p:column>
+                              <p:column headerText="Коммент" filterBy="#{cus.comments}" filterMatchMode="contains">
+                                <h:outputText value="#{cus.comments}" />
+                             </p:column>                              
+                         </p:dataTable>
+                         
+                        </p:panel>
+                    </h:form>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>
+
