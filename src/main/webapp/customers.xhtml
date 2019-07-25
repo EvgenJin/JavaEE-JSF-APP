@@ -19,7 +19,7 @@
                             <p:inputText id="second_name" value="#{vwexpcus.second_name}"/>
                             <p:inputText id="third_name"  value="#{vwexpcus.third_name}"/>
                             
-                            <p:commandButton id="submit" value="Поиск" action="#{vwexpcus.SearchByRecs}"/>                            
+                            <p:commandButton id="submit" value="Поиск" update="@form" action="#{vwexpcus.SearchByRecs}"/>                            
                             <p:dataTable id="customers_grid" var="cus" value="#{vwexpcus.cus_list}"
                                 scrollable="true" scrollHeight="550"
                                 

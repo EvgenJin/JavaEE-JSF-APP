@@ -22,5 +22,12 @@ public class VwExpCusDAO {
     
     public List getAll() {
         return em.createNamedQuery("VwExpCus.findAll", VwExpCus.class).getResultList();
+    }
+    
+    public List findByFio(String firstname, String lastname, String thirdname) {
+        String fio = firstname+lastname+thirdname;
+        System.out.println(fio);
+        return em.createNamedQuery("VwExpCus.findByFio").setParameter("fio",fio).getResultList();
+//            return em.createNamedQuery("VwExpCus.findAll", VwExpCus.class).getResultList();
     }    
 }

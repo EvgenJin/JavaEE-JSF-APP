@@ -73,20 +73,21 @@ public class VwExpCuscontroller implements Serializable{
     
     public List<VwExpCus> getCus_list() {
 //        cus_list = getDao().getAll();
-        cus_list = new ArrayList();
+//        cus_list = new ArrayList();
         return cus_list;
     }
 
-    public void setCus_list(List<VwExpCus> cus_list) {
-        this.cus_list = cus_list;
-    }
+//    public void setCus_list(List<VwExpCus> cus_list) {
+//        this.cus_list = cus_list;
+//    }
     
     public void SearchByRecs() {
+        cus_list = getDao().findByFio(first_name, second_name, third_name);
+//        setCus_list(cus_list);
         System.err.println(first_name);
         System.err.println(second_name);
         System.err.println(third_name);
-        System.err.println(doc_ser);
-        System.err.println(doc_num);
+        System.out.println(cus_list.size());
     }
 
 }

@@ -6,6 +6,7 @@ import java.io.UnsupportedEncodingException;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
@@ -14,7 +15,12 @@ import java.util.Date;
  */
 @Entity
 @Table(name="VW_EXP_CUS")
-@NamedQuery(name="VwExpCus.findAll", query="SELECT v FROM VwExpCus v where v.id <= 200000")
+@XmlRootElement
+@NamedQueries({
+    @NamedQuery(name="VwExpCus.findAll", query="SELECT v FROM VwExpCus v where v.id <= 200000")
+    ,@NamedQuery(name = "VwExpCus.findByFio", query = "SELECT v FROM VwExpCus v WHERE v.fioFind = :fio")
+})
+
 public class VwExpCus implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -466,8 +472,8 @@ public class VwExpCus implements Serializable {
 		this.famstId = famstId;
 	}
 
-	public String getFio() throws UnsupportedEncodingException {
-		return convOut(this.fio);
+	public String getFio() {
+		return this.fio;
 	}
 
 	public void setFio(String fio) {
