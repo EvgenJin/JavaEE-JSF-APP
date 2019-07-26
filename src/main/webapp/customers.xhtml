@@ -14,17 +14,29 @@
                 <div class="p-grid p-col-12 p-md-10 p-lg-8">
                     <h:form>
                         <p:panel header="panel header">
-                            
+                        <p:panelGrid styleClass="ui-panelgrid" columns="6" >
+                            <p:outputLabel for="first_name" value="Имя"/>
                             <p:inputText id="first_name"  value="#{vwexpcus.first_name}"/>
+                            
+                            <p:outputLabel for="second_name" value="Фамилия"/>
                             <p:inputText id="second_name" value="#{vwexpcus.second_name}"/>
+                            
+                            <p:outputLabel for="third_name" value="Отчество"/>
                             <p:inputText id="third_name"  value="#{vwexpcus.third_name}"/>
                             
-                            <p:commandButton id="submit" value="Поиск" update="@form" action="#{vwexpcus.SearchByRecs}"/>                            
+                            <p:outputLabel for="doc_ser" value="Серия"/>
+                            <p:inputText id="doc_ser" value="#{vwexpcus.doc_ser}"/>
+                            
+                            <p:outputLabel for="doc_num" value="Номер"/>
+                            <p:inputText id="doc_num" value="#{vwexpcus.doc_num}"/>
+                            
+                        </p:panelGrid>                            
+                                                      
+                        <p:commandButton id="submit" value="Поиск" update="@form" action="#{vwexpcus.SearchByRecs}"/>
                             <p:dataTable id="customers_grid" var="cus" value="#{vwexpcus.cus_list}"
-                                scrollable="true" scrollHeight="550"
-                                
+                                         scrollable="true" scrollHeight="550"
                             >
-                                <p:column headerText="Фамилия" filterBy="#{cus.fio}" filterMatchMode="contains">
+                                <p:column>
                                     <h:outputText value="#{cus.fio}" />
                                 </p:column>
                             </p:dataTable>                         

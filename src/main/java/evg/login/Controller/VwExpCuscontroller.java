@@ -4,6 +4,7 @@ import evg.login.Dao.VwExpCusDAO;
 import evg.login.Entity.VwExpCus;
 import evg.login.Util.JsfUtil;
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -81,13 +82,15 @@ public class VwExpCuscontroller implements Serializable{
 //        this.cus_list = cus_list;
 //    }
     
-    public void SearchByRecs() {
-        cus_list = getDao().findByFio(first_name, second_name, third_name);
-//        setCus_list(cus_list);
-        System.err.println(first_name);
-        System.err.println(second_name);
-        System.err.println(third_name);
+    public void SearchByRecs() throws UnsupportedEncodingException {
+//        cus_list = getDao().findByFio(first_name, second_name, third_name);
+        cus_list = getDao().findCustomers(first_name, second_name, third_name);
+//        System.err.println(first_name);
+//        System.err.println(second_name);
+//        System.err.println(third_name);
         System.out.println(cus_list.size());
     }
+    
+    
 
 }
