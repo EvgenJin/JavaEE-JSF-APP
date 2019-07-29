@@ -10,36 +10,62 @@
             <h:outputText value="Customers"></h:outputText>
         </ui:define>
         <ui:define name="body">
-            <div class="p-grid p-justify-center" style="margin-top:10px;">
+            <div class="p-grid p-justify-center p-align-center" style="margin-top:10px;">
                 <div class="p-grid p-col-12 p-md-10 p-lg-8">
                     <h:form>
                         <p:panel header="panel header">
-                        <p:panelGrid styleClass="ui-panelgrid" columns="6" >
-                            <p:outputLabel for="first_name" value="Имя"/>
-                            <p:inputText id="first_name"  value="#{vwexpcus.first_name}"/>
-                            
-                            <p:outputLabel for="second_name" value="Фамилия"/>
-                            <p:inputText id="second_name" value="#{vwexpcus.second_name}"/>
-                            
-                            <p:outputLabel for="third_name" value="Отчество"/>
-                            <p:inputText id="third_name"  value="#{vwexpcus.third_name}"/>
-                            
-                            <p:outputLabel for="doc_ser" value="Серия"/>
-                            <p:inputText id="doc_ser" value="#{vwexpcus.doc_ser}"/>
-                            
-                            <p:outputLabel for="doc_num" value="Номер"/>
-                            <p:inputText id="doc_num" value="#{vwexpcus.doc_num}"/>
-                            
-                        </p:panelGrid>                            
-                                                      
-                        <p:commandButton id="submit" value="Поиск" update="@form" action="#{vwexpcus.SearchByRecs}"/>
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="4" >
+                                <p:outputLabel for="first_name" value="Имя"/>
+                                <p:inputText id="first_name"  value="#{vwexpcus.first_name}"/>
+
+                                <p:outputLabel for="second_name" value="Фамилия"/>
+                                <p:inputText id="second_name" value="#{vwexpcus.second_name}"/>
+
+                                <p:outputLabel for="third_name" value="Отчество"/>
+                                <p:inputText id="third_name"  value="#{vwexpcus.third_name}"/>
+
+                                <p:outputLabel for="doc_ser" value="Серия"/>
+                                <p:inputText id="doc_ser" value="#{vwexpcus.doc_ser}"/>
+
+                                <p:outputLabel for="doc_num" value="Номер"/>
+                                <p:inputText id="doc_num" value="#{vwexpcus.doc_num}"/>
+
+                                <p:outputLabel for="dbirth" value="Дата рождения"/>
+                                <h:inputText id="dbirth" value="#{vwexpcus.dbirth}">  
+                                    <f:convertDateTime pattern="dd.MM.yyyy"/>  
+                                </h:inputText>
+                            </p:panelGrid>                                                
+                            <p:commandButton id="submit" value="Поиск"  update="TodosListForm" action="#{vwexpcus.SearchByRecs}"/>
+                        </p:panel>
+                        </h:form>
+                        
+                        
+                        <h:form id="TodosListForm">
+                            <p:panel>
                             <p:dataTable id="customers_grid" var="cus" value="#{vwexpcus.cus_list}"
-                                         scrollable="true" scrollHeight="550"
-                            >
-                                <p:column>
+                                         selection="#{vwexpcus.select}" selectionMode="single" rowKey="#{cus.id}"
+                                         >
+                                <p:column headerText="Дата рождения">
                                     <h:outputText value="#{cus.fio}" />
                                 </p:column>
-                            </p:dataTable>                         
+                                <p:column headerText="Дата рождения">
+                                    <h:outputText value="#{cus.dbirth}">
+                                        <f:convertDateTime pattern="dd.MM.yyyy" />
+                                    </h:outputText>
+                                </p:column>                           
+                                <p:column headerText="Серия">
+                                    <h:outputText value="#{cus.docSer}" />
+                                </p:column>                                
+                                <p:column headerText="Номер">
+                                    <h:outputText value="#{cus.docNum}" />
+                                </p:column>    
+                                
+                            </p:dataTable>
+                         <p:contextMenu for="TodosListForm" id="contMenu">
+                             <p:menuitem value="View" icon="pi pi-search" action = "#{vwexpcus.showResult}">
+                                 <f:param name = "cus_id" value = "#{vwexpcus.select.id}" />
+                             </p:menuitem>
+                         </p:contextMenu>                        
                         </p:panel>
                     </h:form>
                 </div>

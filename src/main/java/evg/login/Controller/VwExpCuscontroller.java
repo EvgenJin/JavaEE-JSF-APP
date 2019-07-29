@@ -6,6 +6,7 @@ import evg.login.Util.JsfUtil;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -23,6 +24,34 @@ public class VwExpCuscontroller implements Serializable{
     private String third_name;
     private String doc_ser;
     private String doc_num;
+    private Date dbirth;
+    private VwExpCus select;
+    private Long data;
+
+    public Long getData() {
+        return data;
+    }
+
+    public void setData(Long data) {
+        this.data = data;
+    }
+    
+
+    public VwExpCus getSelect() {
+        return select;
+    }
+
+    public void setSelect(VwExpCus select) {
+        this.select = select;
+    }
+
+    public Date getDbirth() {
+        return dbirth;
+    }
+
+    public void setDbirth(Date dbirth) {
+        this.dbirth = dbirth;
+    }
     
     public String getDoc_ser() {
         return doc_ser;
@@ -83,13 +112,25 @@ public class VwExpCuscontroller implements Serializable{
 //    }
     
     public void SearchByRecs() throws UnsupportedEncodingException {
-//        cus_list = getDao().findByFio(first_name, second_name, third_name);
-        cus_list = getDao().findCustomers(first_name, second_name, third_name);
+        doc_ser = doc_ser.replaceAll("\\s+","");
+        
+//          if (dbirth != null) {
+            cus_list = getDao().findCustomers(first_name, second_name, third_name, doc_num, doc_ser, dbirth);
+//          }
+          
+//        cus_list = getDao().findCustomers(first_name, second_name, third_name, doc_num, doc_ser, dbirth);
 //        System.err.println(first_name);
 //        System.err.println(second_name);
-//        System.err.println(third_name);
         System.out.println(cus_list.size());
     }
+    
+    public String showResult() {
+        data =  Long.parseLong(JsfUtil.getRequestParameter("cus_id"));
+        select = getDao().findById(data);
+        System.err.println(select.getId());
+        System.err.println(select.getFioFind());
+       return null;
+    }    
     
     
 

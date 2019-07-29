@@ -9,6 +9,7 @@ import evg.login.Entity.VwExpCus;
 import static evg.login.Util.JsfUtil.convIn;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -39,7 +40,11 @@ public class VwExpCusDAO {
 //            return em.createNamedQuery("VwExpCus.findAll", VwExpCus.class).getResultList();
     }
     
-    public List<VwExpCus> findCustomers(String firstName, String surname, String thirdname) throws UnsupportedEncodingException {
+    public VwExpCus findById(Long id) {
+        return em.find(VwExpCus.class, id);
+    }    
+    
+    public List<VwExpCus> findCustomers(String firstName, String surname, String thirdname, String docnum, String docser, Date dbirth) throws UnsupportedEncodingException {
 
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<VwExpCus> query = builder.createQuery(VwExpCus.class);
@@ -53,21 +58,41 @@ public class VwExpCusDAO {
 //      имя не нулл и не пусто  
         if ((firstName != null) && (!(firstName.isEmpty()))) {
             firstNamePredicate = builder.like(
-                builder.upper(cust.<String>get("fio")), "%"+convIn(firstName).toUpperCase()+"%");
+                builder.upper(cust.<String>get("fio")), "%"+firstName.toUpperCase()+"%");
             predicateList.add(firstNamePredicate);
         }
-//      фамилия не нулл и не пусто
+
         if ((surname != null) && (!(surname.isEmpty()))) {
             surnamePredicate = builder.like(
-                builder.upper(cust.<String>get("fio")), "%"+convIn(surname).toUpperCase()+"%");
+                builder.upper(cust.<String>get("fio")), "%"+surname.toUpperCase()+"%");
             predicateList.add(surnamePredicate);
         }
-//      отчество не нулл и не пусто
+
         if ((thirdname != null) && (!(thirdname.isEmpty()))) {
             surnamePredicate = builder.like(
-                builder.upper(cust.<String>get("fio")), "%"+convIn(thirdname).toUpperCase()+"%");
+                builder.upper(cust.<String>get("fio")), "%"+thirdname.toUpperCase()+"%");
             predicateList.add(surnamePredicate);
-        }        
+        }
+        
+        if ((docnum != null) && (!(docnum.isEmpty()))) {
+            surnamePredicate = builder.like(
+                builder.upper(cust.<String>get("docNum")), "%"+docnum+"%");
+            predicateList.add(surnamePredicate);
+        }  
+
+
+        if ((docser != null) && (!(docser.isEmpty()))) {
+            surnamePredicate = builder.like(
+                builder.upper(cust.<String>get("docSer")), "%"+docser+"%");
+            predicateList.add(surnamePredicate);
+        }
+        
+        if (dbirth != null) {
+            System.err.println(dbirth);
+            surnamePredicate = builder.equal(cust.<Date>get("dbirth"), dbirth);
+            predicateList.add(surnamePredicate);
+        }    
+            
 
         Predicate[] predicates = new Predicate[predicateList.size()];
         predicateList.toArray(predicates);

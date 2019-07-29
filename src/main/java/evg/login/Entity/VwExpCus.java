@@ -138,7 +138,7 @@ public class VwExpCus implements Serializable {
 	private BigDecimal icusnum;
 
         @Id
-	private BigDecimal id;
+	private Long id;
 
 	@Column(name="IKAR_ID")
 	private BigDecimal ikarId;
@@ -504,11 +504,11 @@ public class VwExpCus implements Serializable {
 		this.icusnum = icusnum;
 	}
 
-	public BigDecimal getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(BigDecimal id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
