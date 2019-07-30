@@ -45,5 +45,12 @@
                 <redirect/>
             </navigation-case>
         </navigation-rule>
+        <navigation-rule>
+            <navigation-case>
+                <from-outcome>onecus</from-outcome>
+                <to-view-id>/customer/OneCus.xhtml</to-view-id>
+                <redirect/>
+            </navigation-case>
+        </navigation-rule>        
     </application>
 </faces-config>

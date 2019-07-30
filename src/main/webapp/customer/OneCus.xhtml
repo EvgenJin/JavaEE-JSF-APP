@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition template="/template.xhtml">
+
+
+        <ui:define name="title">
+            <h:outputText value="cus_page"></h:outputText>
+        </ui:define>
+
+        <ui:define name="body">
+            <div class="p-grid p-justify-center" style="margin-top:10px;">
+                <div class="p-grid p-col-12 p-md-6 p-lg-4">
+                    <h:form>
+                        <p:panel id="basic" header="Первый блок">
+                            <p:panelGrid styleClass="ui-panelgrid-blank" columns="6" rendered="#{CusData.cus != null}">                               
+                                <p:inputText value="#{CusData.cus.fio}" id="fio"/>
+                            </p:panelGrid>
+                        </p:panel>
+                    </h:form>
+                </div>
+            </div>
+        </ui:define>
+    </ui:composition>
+</html>

@@ -45,6 +45,9 @@
                             <p:dataTable id="customers_grid" var="cus" value="#{vwexpcus.cus_list}"
                                          selection="#{vwexpcus.select}" selectionMode="single" rowKey="#{cus.id}"
                                          >
+                             <p:ajax event="rowSelect"   update=":TodosListForm:contMenu "/>
+                             <p:ajax event="rowUnselect" update=":TodosListForm:contMenu "/>
+                             
                                 <p:column headerText="Дата рождения">
                                     <h:outputText value="#{cus.fio}" />
                                 </p:column>
@@ -62,7 +65,7 @@
                                 
                             </p:dataTable>
                          <p:contextMenu for="TodosListForm" id="contMenu">
-                             <p:menuitem value="View" icon="pi pi-search" action = "#{vwexpcus.showResult}">
+                             <p:menuitem value="View" icon="pi pi-search" action = "#{CusData.showCus}">
                                  <f:param name = "cus_id" value = "#{vwexpcus.select.id}" />
                              </p:menuitem>
                          </p:contextMenu>                        
