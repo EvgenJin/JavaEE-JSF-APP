@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
@@ -19,6 +20,7 @@ public class VwExpCuscontroller implements Serializable{
     private VwExpCusDAO dao;
     
     private List<VwExpCus> cus_list;
+    private Long id;
     private String first_name;
     private String second_name;
     private String third_name;
@@ -27,7 +29,14 @@ public class VwExpCuscontroller implements Serializable{
     private Date dbirth;
     private VwExpCus select;
     private Long data;
+    
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
     public Long getData() {
         return data;
     }
@@ -115,7 +124,7 @@ public class VwExpCuscontroller implements Serializable{
         doc_ser = doc_ser.replaceAll("\\s+","");
         
 //          if (dbirth != null) {
-            cus_list = getDao().findCustomers(first_name, second_name, third_name, doc_num, doc_ser, dbirth);
+            cus_list = getDao().findCustomers(first_name, second_name, third_name, doc_num, doc_ser, dbirth, id);
 //          }
           
 //        cus_list = getDao().findCustomers(first_name, second_name, third_name, doc_num, doc_ser, dbirth);
@@ -123,15 +132,4 @@ public class VwExpCuscontroller implements Serializable{
 //        System.err.println(second_name);
         System.out.println(cus_list.size());
     }
-    
-    public String showResult() {
-        data =  Long.parseLong(JsfUtil.getRequestParameter("cus_id"));
-        select = getDao().findById(data);
-        System.err.println(select.getId());
-        System.err.println(select.getFioFind());
-       return null;
-    }    
-    
-    
-
 }

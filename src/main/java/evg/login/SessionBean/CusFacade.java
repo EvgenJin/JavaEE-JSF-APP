@@ -15,6 +15,16 @@ public class CusFacade implements Serializable{
     private VwExpCusDAO cusDAO;
     private Long id;
     private VwExpCus cus;
+    private String access_edit = "true";
+    private String dul;
+
+    public String getAccess_edit() {
+        return access_edit;
+    }
+
+    public void setAccess_edit(String access_edit) {
+        this.access_edit = access_edit;
+    }
 
     public VwExpCusDAO getCusDAO() {
         return cusDAO;
@@ -38,6 +48,15 @@ public class CusFacade implements Serializable{
 
     public void setCus(VwExpCus cus) {
         this.cus = cus;
+    }
+    
+    public String getDul() {
+        dul = "Серия " + cus.getDocSer()+ " Номер " + cus.getDocNum() + " выдан " + cus.getDocWho() +" "+ cus.getDocWhen() +" код подр "+ cus.getDocPodr();
+        return dul;
+    }
+
+    public void setDul(String dul) {
+        this.dul = dul;
     }
     
     public String showCus() {

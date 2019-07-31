@@ -44,7 +44,7 @@ public class VwExpCusDAO {
         return em.find(VwExpCus.class, id);
     }    
     
-    public List<VwExpCus> findCustomers(String firstName, String surname, String thirdname, String docnum, String docser, Date dbirth) throws UnsupportedEncodingException {
+    public List<VwExpCus> findCustomers(String firstName, String surname, String thirdname, String docnum, String docser, Date dbirth, Long id) throws UnsupportedEncodingException {
 
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<VwExpCus> query = builder.createQuery(VwExpCus.class);
@@ -88,10 +88,14 @@ public class VwExpCusDAO {
         }
         
         if (dbirth != null) {
-            System.err.println(dbirth);
             surnamePredicate = builder.equal(cust.<Date>get("dbirth"), dbirth);
             predicateList.add(surnamePredicate);
-        }    
+        }
+        
+        if (id != null) {
+            surnamePredicate = builder.equal(cust.<Long>get("id"), id);
+            predicateList.add(surnamePredicate);
+        }            
             
 
         Predicate[] predicates = new Predicate[predicateList.size()];
