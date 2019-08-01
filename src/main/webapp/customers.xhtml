@@ -11,7 +11,7 @@
         </ui:define>
         <ui:define name="body">
             <div class="p-grid p-justify-center p-align-center" style="margin-top:10px;">
-            <div class="p-grid p-justify-center p-md-12">
+                <div class="p-grid p-justify-center p-md-12">
                     <h:form>
                         <p:panel header="panel header">
                             <p:panelGrid styleClass="ui-panelgrid-blank" columns="4" >
@@ -41,15 +41,15 @@
                                 <p:commandButton id="submit" class = "" value="Поиск" update="TodosListForm" action="#{vwexpcus.SearchByRecs}"/>                                
                         </p:panel>
                         </h:form>
-            </div>
+                </div>
             <div class="p-grid p-justify-center p-md-8">            
                         <h:form id="TodosListForm">
                             <p:panel>
                             <p:dataTable id="customers_grid" var="cus" value="#{vwexpcus.cus_list}"
                                          selection="#{vwexpcus.select}" selectionMode="single" rowKey="#{cus.id}"
                                          >
-                            <p:ajax event="rowSelect"   update=":TodosListForm:contMenu "/>
-                            <p:ajax event="rowUnselect" update=":TodosListForm:contMenu "/>
+                                <p:ajax event="rowSelect"   update=":TodosListForm:contMenu "/>
+                                <p:ajax event="rowUnselect" update=":TodosListForm:contMenu "/>
                                 <p:column headerText="id" style="width:25px" >
                                     <h:outputText value="#{cus.id}"/>
                                 </p:column>

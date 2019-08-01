@@ -7,3 +7,18 @@
     box-shadow: 0 14px 28px rgba(0,0,0,0.10)
 }
 
+.input-xs { 
+    width: 50px;
+}
+.input-s { 
+    width: 100px;
+}
+.input-m { 
+    width: 400px;
+}
+.input-l { 
+    width: 600px;
+}
+.input-xl { 
+    width: 600px;
+}

@@ -17,31 +17,28 @@
                 <div class="p-grid p-justify-center p-align-center" style="margin-top:10px;">
                    
                 </div>
-<h3>12 Column Grid</h3>
-<div class="p-grid">
-    <div class="p-col-4">
-        <div class="box">
+ 
+    <p:tabView orientation="left">
+        <p:tab title="Паспортные данные">
             <h:form>
-                <p:panel id="basic" header="Паспортные данные">
-                    <p:panelGrid class="ui-fluid" styleClass="ui-panelgrid-blank" columns="2">
-                        <p:outputLabel for="fio" value="ФИО"/>
-                        <p:inputText value="#{CusData.cus.fio}" id="fio" disabled= "#{CusData.access_edit}"/>
-                        <p:outputLabel for="addrBirth" value="Дата рождения"/>
-                        <p:inputText value="#{CusData.cus.dbirth}" id="addrBirth" disabled= "#{CusData.access_edit}"/>
-                        <p:outputLabel for="full_dul" value="ДУЛ"/>
-                        <p:inputTextarea value="#{CusData.dul}" style="width: 500px" id="full_dul" disabled= "#{CusData.access_edit}"/>
-                        <p:outputLabel for="place1" value="Место регистрации"/>
-                        <p:inputTextarea value="#{CusData.cus.place1}" style="width: 500px" id="place1" disabled= "#{CusData.access_edit}"/>
-                        <p:outputLabel for="place2" value="Место жительства"/>
-                        <p:inputTextarea value="#{CusData.cus.place2}" style="width: 500px" id="place2" disabled= "#{CusData.access_edit}"/>                                
-                    </p:panelGrid>
-                </p:panel>
+                <p:panelGrid class="ui-fluid" styleClass="ui-panelgrid-blank" columns="2">
+                    <p:outputLabel for="fio" value="ФИО"/>
+                    <p:inputText class="input-m" value="#{CusData.cus.fio}" id="fio" disabled= "#{CusData.access_edit}"/>
+                    <p:outputLabel for="addrBirth" value="Дата рождения"/>
+                    <p:inputText class="input-s" value="#{CusData.cus.dbirth}" id="addrBirth" disabled= "#{CusData.access_edit}">
+                        <f:convertDateTime pattern="dd.MM.yyyy"/>
+                    </p:inputText>
+                    <p:outputLabel for="full_dul" value="ДУЛ"/>
+                    <p:inputTextarea value="#{CusData.dul}" style="width: 500px" id="full_dul" disabled= "#{CusData.access_edit}"/>
+                    <p:outputLabel for="place1" value="Место регистрации"/>
+                    <p:inputTextarea value="#{CusData.cus.place1}" style="width: 500px" id="place1" disabled= "#{CusData.access_edit}"/>
+                    <p:outputLabel for="place2" value="Место жительства"/>
+                    <p:inputTextarea value="#{CusData.cus.place2}" style="width: 500px" id="place2" disabled= "#{CusData.access_edit}"/>                                
+                </p:panelGrid>
             </h:form>
-        </div>
-    </div>
-    <div class="p-col-4">
-        <h:form>
-            <p:panel id="personinfo" header="Персональная информация">
+        </p:tab>
+        <p:tab title="Персональная информация">
+            <h:form>
                 <p:panelGrid styleClass="ui-panelgrid-blank" columns="2">
                     <p:outputLabel for="educ" value="Образование"/>
                     <p:inputText value="#{CusData.cus.educ}" id="educ" disabled="#{CusData.access_edit}"/>
@@ -53,13 +50,11 @@
                     <p:inputText value="#{CusData.cus.family}" id="family" disabled="#{CusData.access_edit}"/>                  
                     <p:outputLabel for="maidenName" value="maidenName"/>
                     <p:inputText value="#{CusData.cus.maidenName}" id="maidenName" disabled="#{CusData.access_edit}"/>                    
-                </p:panelGrid>
-            </p:panel>
-        </h:form>
-    </div>
-    <div class="p-col-4">
-        <h:form>
-            <p:panel id="workinfo" header="Трудовая занятость">
+                </p:panelGrid>                
+            </h:form>
+        </p:tab>
+        <p:tab title="Трудовая занятость">
+            <h:form>
                 <p:panelGrid styleClass="ui-panelgrid-blank" columns="2">
                     <p:outputLabel for="work" value="Наименование"/>
                     <p:inputText value="#{CusData.cus.work}" id="work" disabled="#{CusData.access_edit}"/>
@@ -72,8 +67,19 @@
                     <p:outputLabel for="dateBegWorkLast" value="Последний стаж"/>
                     <p:inputText value="#{CusData.cus.dateBegWorkLast}" id="dateBegWorkLast" disabled="#{CusData.access_edit}"/>                    
                 </p:panelGrid>
-            </p:panel>
-        </h:form>
+            </h:form>
+        </p:tab>
+    </p:tabView>            
+
+<div class="p-grid">
+    <div class="p-col-4">
+        <div class="box">
+        </div>
+    </div>
+    <div class="p-col-4">
+    </div>
+    <div class="p-col-4">
+
     </div>
     <div class="p-col">
         <div class="box">1</div>
