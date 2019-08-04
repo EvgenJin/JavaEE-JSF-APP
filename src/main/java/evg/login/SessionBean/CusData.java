@@ -10,7 +10,7 @@ import javax.faces.bean.SessionScoped;
 
 @ManagedBean(name = "CusData")
 @SessionScoped
-public class CusFacade implements Serializable{
+public class CusData implements Serializable{
     @EJB
     private VwExpCusDAO cusDAO;
     private Long id;

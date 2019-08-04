@@ -1,4 +1,4 @@
-package evg.login.Controller;
+package evg.login.SessionBean;
 
 import evg.login.Dao.VwExpCusDAO;
 import evg.login.Entity.VwExpCus;

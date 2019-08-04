@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package evg.login.Entity;
-import evg.login.Dao.LoginDAO;
+import evg.login.Util.Auth;
 import evg.login.Util.SessionUtils;
 import java.io.Serializable;
 import javax.faces.application.FacesMessage;
@@ -51,7 +51,7 @@ public class Login implements Serializable {
 
 	//validate login
 	public String validateUsernamePassword() {
-		boolean valid = LoginDAO.validate(user, pwd);
+		boolean valid = Auth.validate(user, pwd);
 		if (valid) {
 			HttpSession session = SessionUtils.getSession();
                         session.setAttribute("username", user);

@@ -14,12 +14,18 @@
                 <div class="p-grid p-justify-center p-md-12">
                     <h:form>
                         <p:panel header="panel header">
+                            <p:messages id="messages" showDetail="true" closable="true">
+                                <p:autoUpdate />
+                            </p:messages>
                             <p:panelGrid styleClass="ui-panelgrid-blank" columns="4" >
                                 <p:outputLabel for="first_name" value="Имя"/>
-                                <p:inputText id="first_name"  value="#{vwexpcus.first_name}"/>
+                                <p:inputText id="first_name" value="#{vwexpcus.first_name}" required="true">
+                                    <f:validateLength minimum="1" />
+                                </p:inputText>
 
                                 <p:outputLabel for="second_name" value="Фамилия"/>
-                                <p:inputText id="second_name" value="#{vwexpcus.second_name}"/>
+                                <p:inputText id="second_name" value="#{vwexpcus.second_name}" >
+                                </p:inputText>
 
                                 <p:outputLabel for="third_name" value="Отчество"/>
                                 <p:inputText id="third_name"  value="#{vwexpcus.third_name}"/>

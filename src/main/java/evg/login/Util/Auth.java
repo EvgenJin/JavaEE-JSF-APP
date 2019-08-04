@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package evg.login.Dao;
+package evg.login.Util;
 
 import evg.login.Entity.Login;
 import java.sql.Connection;
@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class LoginDAO {
+public class Auth {
 
 	public static boolean validate(String user, String password) {
             try {
